@@ -8,10 +8,10 @@ namespace Testing4
     public class tstStock
     {
         [TestMethod]
-        public void InstanceOk()
+        public void TestMethod1()
         {
-            clsStock aStock = new clsStock();
-            Assert.IsNotNull(aStock);
+            clsStock Stock = new clsStock();
+            Assert.IsNotNull(Stock);
         }
     }
 }
