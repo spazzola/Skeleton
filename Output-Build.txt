@@ -1,0 +1,17 @@
+﻿Build started...
+1>------ Build started: Project: ClassLibrary, Configuration: Debug Any CPU ------
+2>------ Build started: Project: AdminSystem, Configuration: Debug Any CPU ------
+2>Validating Web Site
+2>Building directory '/'.
+2>
+2>Validation Complete
+1>  ClassLibrary -> E:\Program Files\Git Hub Sessions\Session 1,3\ClassLibrary\bin\Debug\ClassLibrary.dll
+3>------ Build started: Project: TestingSupplier, Configuration: Debug Any CPU ------
+4>------ Build started: Project: TestingStock, Configuration: Debug Any CPU ------
+5>------ Build started: Project: TestingOrder, Configuration: Debug Any CPU ------
+6>------ Build started: Project: TestingStaff, Configuration: Debug Any CPU ------
+3>  TestingSupplier -> E:\Program Files\Git Hub Sessions\Session 1,3\Testing6\bin\Debug\Testing6.dll
+4>  TestingStock -> E:\Program Files\Git Hub Sessions\Session 1,3\Testing4\bin\Debug\Testing4.dll
+5>  TestingOrder -> E:\Program Files\Git Hub Sessions\Session 1,3\Testing2\bin\Debug\Testing2.dll
+6>  TestingStaff -> E:\Program Files\Git Hub Sessions\Session 1,3\Testing1\bin\Debug\Testing1.dll
+========== Build: 6 succeeded, 0 failed, 2 up-to-date, 0 skipped ==========
