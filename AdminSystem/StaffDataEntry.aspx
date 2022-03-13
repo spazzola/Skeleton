@@ -10,6 +10,28 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lblFullName" runat="server" Text="Staff Full Name"></asp:Label>
+        <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblSalary" runat="server" Text="Salary" width="202px"></asp:Label>
+        <asp:TextBox ID="txtSalary" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblLogin" runat="server" Text="Login" width="202px"></asp:Label>
+        <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblPassword" runat="server" Text="Password" width="202px"></asp:Label>
+        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+        <br />
+        <asp:CheckBox ID="chkIsAdmin" runat="server" Text="Is an Admin" width="202px" />
+        <p>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        </p>
     </form>
 </body>
 </html>
