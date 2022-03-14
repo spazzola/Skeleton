@@ -11,6 +11,15 @@ namespace Testing3
         public void InstanceOK()
         {
             clsCustomer acc = new clsCustomer();
+            Assert.IsNotNull(acc);
         }
+
+        [TestMethod]
+        public void IDNotNull()
+        {
+            clsCustomer acc = new clsCustomer();
+            Assert.AreNotEqual(acc.id, null);
+        }
+
     }
 }
