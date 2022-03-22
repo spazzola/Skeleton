@@ -15,15 +15,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e) {
         clsStaff staffMember = new clsStaff();
-        staffMember.staffId = Convert.ToInt32(txtStaffId.Text);
-        staffMember.fullName = txtFullName.Text;
-        staffMember.salary = Convert.ToDouble(txtSalary.Text);
-        staffMember.login = txtLogin.Text;
-        staffMember.password = txtPassword.Text;
-        staffMember.isAdmin = chkIsAdmin.Checked;
+        string staffId = txtStaffId.Text;
+        string fullName = txtFullName.Text;
+        string stringSalary = txtSalary.Text;
+        string login = txtLogin.Text;
+        string password = txtPassword.Text;
+        string lastLogged = "12/02/2020 12:00";
+        Boolean isAdmin = chkIsAdmin.Checked;
 
-        Session["staffMember"] = staffMember;
-        Response.Redirect("StaffViewer.aspx");
+        string error = "";
+        error = staffMember.Valid(fullName, login, password, lastLogged, stringSalary);
+
+        if (error == "") {
+            staffMember.staffId = Convert.ToInt32(staffId);
+            staffMember.fullName = fullName;
+            staffMember.salary = Convert.ToDouble(stringSalary);
+            staffMember.login = login;
+            staffMember.password = password;
+            staffMember.lastLogged = Convert.ToDateTime(lastLogged);
+            staffMember.isAdmin = isAdmin;
+
+            Session["staffMember"] = staffMember;
+            Response.Redirect("StaffViewer.aspx");
+        } else {
+            lblError.Text = error;
+        }
+
+        
     }
 
     protected void btnFind_Click(object sender, EventArgs e) {
