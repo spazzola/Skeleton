@@ -15,6 +15,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e) {
         clsStaff staffMember = new clsStaff();
+        staffMember.staffId = Convert.ToInt32(txtStaffId.Text);
         staffMember.fullName = txtFullName.Text;
         staffMember.salary = Convert.ToDouble(txtSalary.Text);
         staffMember.login = txtLogin.Text;
@@ -23,5 +24,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         Session["staffMember"] = staffMember;
         Response.Redirect("StaffViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e) {
+        clsStaff staffMember = new clsStaff();
+        Int32 staffId;
+        Boolean found = false;
+        staffId = Convert.ToInt32(txtStaffId.Text);
+        found = staffMember.Find(staffId);
+
+        if (found == true) {
+            txtFullName.Text = staffMember.fullName;
+            txtSalary.Text = staffMember.salary.ToString();
+            txtLogin.Text = staffMember.login;
+            txtPassword.Text = staffMember.password;
+            chkIsAdmin.Checked = staffMember.isAdmin;
+        }
     }
 }
