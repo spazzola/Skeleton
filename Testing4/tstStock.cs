@@ -181,16 +181,6 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void IDMinLessOne()
-        {
-            clsStock Stock = new clsStock();
-            String Error = "";
-            String Description = -1;
-            Error = Stock.Valid(Description, Price, Amount, Available, Shipment);
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
         public void DescMinLessOne()
         {
             clsStock Stock = new clsStock();
