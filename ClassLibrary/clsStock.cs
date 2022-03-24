@@ -93,6 +93,8 @@ namespace ClassLibrary
         {
             String Error = "";
             DateTime DateTemp;
+
+
             if (description.Length == 0)
             {
                 Error = Error + "The description may not be blank : ";
@@ -117,13 +119,9 @@ namespace ClassLibrary
             }
 
 
-            if (amount.Substring(0, 1)  == "-")
-            {
-                Error = Error + "The amount may not be negative : ";
-            }
             try
             {
-                if (float.Parse(amount) < 0)
+                if (int.Parse(amount) < 0)
                 {
                     Error = Error + "The amount may not be negative : ";
                 }
