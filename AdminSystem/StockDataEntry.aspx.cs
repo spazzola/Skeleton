@@ -16,12 +16,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStock Stock = new clsStock();
-        Stock.ItemAmount = Int16.Parse(txtItemAmount.Text);
-        Stock.ItemAvailable = chkAvailable.Checked;
-        Stock.ItemPrice = float.Parse(txtItemPrice.Text);
-        Stock.ItemShipment = DateTime.Parse(txtNextShipment.Text);
-        Stock.ItemDescription = txtItemDesc.Text;
-        Session["Stock"] = Stock;
-        Response.Redirect("StockViewer.aspx");
+        string Desc = txtItemDesc.Text;
+        string Price = txtItemPrice.Text;
+        string Amount = txtItemAmount.Text;
+        string Available = chkAvailable.Checked.ToString();
+        string Shipment = txtNextShipment.Text;
+        string Error = "";
+        Error = Stock.Valid(Desc, Price, Amount, Available, Shipment);
+        
+        if (Error == "")
+        {
+            Stock.ItemAmount = Int16.Parse(txtItemAmount.Text);
+            Stock.ItemAvailable = chkAvailable.Checked;
+            Stock.ItemPrice = float.Parse(txtItemPrice.Text);
+            Stock.ItemShipment = DateTime.Parse(txtNextShipment.Text);
+            Stock.ItemDescription = txtItemDesc.Text;
+            Session["Stock"] = Stock;
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 }

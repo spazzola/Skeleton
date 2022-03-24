@@ -10,8 +10,6 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="lblItemID" runat="server" Text="Item ID" width="100px"></asp:Label>
-        <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblItemDesc" runat="server" Text="Item Description"></asp:Label>
             <asp:TextBox ID="txtItemDesc" runat="server"></asp:TextBox>

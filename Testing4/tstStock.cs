@@ -7,8 +7,9 @@ namespace Testing4
     [TestClass]
     public class tstStock
     {
+        String ID = "1";
         String Description = "A red Jumper";
-        String Price = "4.2";
+        String Price = 4.2f.ToString();
         String Amount = "10";
         String Available = "true";
         String Shipment = DateTime.Now.Date.ToString();
@@ -180,6 +181,16 @@ namespace Testing4
         }
 
         [TestMethod]
+        public void IDMinLessOne()
+        {
+            clsStock Stock = new clsStock();
+            String Error = "";
+            String Description = -1;
+            Error = Stock.Valid(Description, Price, Amount, Available, Shipment);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void DescMinLessOne()
         {
             clsStock Stock = new clsStock();
@@ -305,6 +316,16 @@ namespace Testing4
         }
 
         [TestMethod]
+        public void PriceInvalidData()
+        {
+            clsStock Stock = new clsStock();
+            String Error = "";
+            String Price = "This is not a float";
+            Error = Stock.Valid(Description, Price, Amount, Available, Shipment);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
         public void AmountExtremeMin()
         {
             clsStock Stock = new clsStock();
@@ -346,6 +367,16 @@ namespace Testing4
             Amount = "1";
             Error = Stock.Valid(Description, Price, Amount, Available, Shipment);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void AmountInvalidData()
+        {
+            clsStock Stock = new clsStock();
+            String Error = "";
+            String Amount = "This is not an int";
+            Error = Stock.Valid(Description, Price, Amount, Available, Shipment);
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
