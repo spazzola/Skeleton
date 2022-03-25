@@ -15,8 +15,12 @@
             <asp:CheckBox ID="cbIsDelivered" runat="server" Text="Is Delivered" />
             <br />
             <br />
+            OrderID<asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
+            <br />
+            <br />
             <asp:Label ID="lblOrderNo" runat="server" Text="Order Number"></asp:Label>
             <asp:TextBox ID="txtOrderNo" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" Text="Find" />
             <br />
             <br />
             <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID" width="160px"></asp:Label>
