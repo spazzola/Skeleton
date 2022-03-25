@@ -5,8 +5,18 @@ using System;
 namespace Testing2
 {
     [TestClass]
-    public class tstOrder
-    {
+    public class tstOrder {
+
+
+
+        String orderID = "1";
+        String isDelivered = "true";
+        String orderNo = "3abc4def56";
+        String CustomerID = "1234567";
+        String DatePurchased = DateTime.Now.Date.ToString();
+        String TotalPrice = 20.00.ToString();
+        
+    
         [TestMethod]
         public void InstanceOK()
         {
@@ -34,9 +44,9 @@ namespace Testing2
 
             String TestData = "2bcd6acb67";
 
-            AnOrder.OrderNo = TestData;
+            AnOrder.orderNo = TestData;
 
-            Assert.AreEqual(AnOrder.OrderNo, TestData);
+            Assert.AreEqual(AnOrder.orderNo, TestData);
         }
 
         [TestMethod]
@@ -86,12 +96,32 @@ namespace Testing2
 
             Boolean Found = false;
 
-            String OrderNo = "3abc4def56";
+            String orderNo = "3abc4def56";
 
-            Found = AnOrder.Find(OrderNo);
+            Int32 orderID = 1;
+
+            Found = AnOrder.Find(orderID);
 
             Assert.IsTrue(Found);
 
+
+        }
+
+
+        [TestMethod]
+        public void TestOrderIDFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = AnOrder.Find(orderID);
+
+            if (AnOrder.orderID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
         }
 
@@ -103,13 +133,17 @@ namespace Testing2
 
             Boolean Found = false;
 
+
             Boolean OK = true;
 
-            String OrderNo = "1abc2def34";
 
-            Found = AnOrder.Find(OrderNo);
+            String orderNo = "1abc2def34";
 
-            if (AnOrder.OrderNo != "1abc2def34")
+            Int32 orderID = 1;
+
+            Found = AnOrder.Find(orderID);
+
+            if (AnOrder.orderNo != "1abc2def34")
             {
                 OK = false;
             }
@@ -126,11 +160,14 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Int32 CustomerID = 12345;
+            Int32 CustomerID = 123456;
 
-            Found = AnOrder.Find(CustomerID);
+            Int32 orderID = 1;
 
-            if (AnOrder.CustomerID != 12345)
+
+            Found = AnOrder.Find(orderID);
+
+            if (AnOrder.CustomerID != 123456)
             {
                 OK = false;
             }
@@ -150,7 +187,9 @@ namespace Testing2
 
             DateTime DatePurchased = DateTime.Now.Date;
 
-            Found = AnOrder.Find(DatePurchased);
+            Int32 orderID = 1;
+
+            Found = AnOrder.Find(orderID);
 
             if (AnOrder.DatePurchased != DateTime.Now.Date)
             {
@@ -172,11 +211,13 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Double TotalPrice = 12.99;
+            Double TotalPrice = 20.00;
 
-            Found = AnOrder.Find(TotalPrice);
+            Int32 orderID = 1;
 
-            if (AnOrder.TotalPrice != 12.99)
+            Found = AnOrder.Find(orderID);
+
+            if (AnOrder.TotalPrice != 20.00)
             {
                 OK = false;
             }
