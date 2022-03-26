@@ -20,6 +20,6 @@ public partial class _1Viewer : System.Web.UI.Page
 
         //display orderNo for entry
 
-        Response.Write(AnOrder.OrderNo);
+        Response.Write(AnOrder.orderID);
     }
 }

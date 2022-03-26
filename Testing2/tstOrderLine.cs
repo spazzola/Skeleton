@@ -115,7 +115,7 @@ namespace Testing2
 
             Boolean OK = true;
 
-            String OrderNo = "3abc4def56";
+            
 
             Int32 orderLineID = 1;
 
@@ -140,7 +140,7 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Int32 itemID = 123456;
+            
 
             Int32 orderLineID = 1;
 
@@ -164,7 +164,7 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Int32 Quantity = 5;
+            
 
             Int32 orderLineID = 1;
 
@@ -188,7 +188,7 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Double TotalPrice = 20.00;
+            
 
             Int32 orderLineID = 1;
 

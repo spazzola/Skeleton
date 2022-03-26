@@ -7,14 +7,10 @@ namespace Testing2
     [TestClass]
     public class tstOrder {
 
-
-
-        String orderID = "1";
-        String isDelivered = "true";
-        String orderNo = "3abc4def56";
-        String CustomerID = "1234567";
-        String DatePurchased = DateTime.Now.Date.ToString();
-        String TotalPrice = 20.00.ToString();
+        string orderNo = "3abc4def56";
+        string CustomerID = "1234567";
+        string DatePurchased = DateTime.Now.Date.ToString();
+        
         
     
         [TestMethod]
@@ -96,8 +92,6 @@ namespace Testing2
 
             Boolean Found = false;
 
-            String orderNo = "3abc4def56";
-
             Int32 orderID = 1;
 
             Found = AnOrder.Find(orderID);
@@ -137,13 +131,13 @@ namespace Testing2
             Boolean OK = true;
 
 
-            String orderNo = "1abc2def34";
+            
 
             Int32 orderID = 1;
 
             Found = AnOrder.Find(orderID);
 
-            if (AnOrder.orderNo != "1abc2def34")
+            if (AnOrder.orderNo != "3abc4def56")
             {
                 OK = false;
             }
@@ -160,14 +154,14 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Int32 CustomerID = 123456;
+            
 
             Int32 orderID = 1;
 
 
             Found = AnOrder.Find(orderID);
 
-            if (AnOrder.CustomerID != 123456)
+            if (AnOrder.CustomerID != 1)
             {
                 OK = false;
             }
@@ -185,13 +179,13 @@ namespace Testing2
 
             Boolean OK = true;
 
-            DateTime DatePurchased = DateTime.Now.Date;
+            
 
             Int32 orderID = 1;
 
             Found = AnOrder.Find(orderID);
 
-            if (AnOrder.DatePurchased != DateTime.Now.Date)
+            if (AnOrder.DatePurchased != Convert.ToDateTime("25/03/2022 18:12:29"))
             {
                 OK = false;
             }
@@ -211,7 +205,7 @@ namespace Testing2
 
             Boolean OK = true;
 
-            Double TotalPrice = 20.00;
+            
 
             Int32 orderID = 1;
 
@@ -226,5 +220,281 @@ namespace Testing2
 
 
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+        }
+
+
+        [TestMethod]
+
+        public void orderNoMinLow()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            string orderNo = "1ab";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+            
+
+            
+        }
+
+        [TestMethod]
+
+        public void orderNoMinBoundary()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            string orderNo = "1abc2";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void orderNoMinPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            string orderNo = "1abc2d";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void orderNoMaxMinusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            string orderNo = "1abc2def3";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void orderNoMaxBoundary()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            string orderNo = "1abc2def3g";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void orderNoMaxPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            String orderNo = "1abc2def3gh";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void orderExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+
+            String error = "";
+
+            String orderNo = "aaaaaaaaaaaaaaaaaaaa";
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void CustomerIDMinLen()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            String CustomerID = "";
+
+           
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        [TestMethod]
+
+        public void CustomerIDMinVal()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            Int32 testCustomer = 0;
+            string CustomerID = testCustomer.ToString();
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+            Assert.AreNotEqual(error, "");
+
+        }
+
+        [TestMethod]
+
+        public void CustomerInvalid()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            String CustomerID = "some string";
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+
+        public void DatePurchasedExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(-50);
+            string DatePurchased = testDate.ToString();
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+         }
+
+        [TestMethod]
+        public void DatePurchasedMinusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddSeconds(-1);
+            string DatePurchased = testDate.ToString();
+
+            Error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+
+        public void DatePurchasedMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            string DatePurchased = testDate.ToString();
+
+            Error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(Error, "");
+
+
+        }
+
+        [TestMethod]
+
+        public void DatePurchasedMaxPlusOne()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddSeconds(1);
+            string DatePurchased = testDate.ToString();
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+        }
+
+
+        [TestMethod]
+
+        public void DatePurchasedExtremeMax()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String error = "";
+            DateTime testDate;
+            testDate = DateTime.Now.Date;
+            testDate = testDate.AddYears(50);
+            string DatePurchased = testDate.ToString();
+
+            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
+            Assert.AreNotEqual(error, "");
+
+
+        }
+
     }
 }
