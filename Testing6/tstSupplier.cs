@@ -14,28 +14,30 @@ namespace Testing6
             Assert.IsNotNull(Supplier);
         }
         [TestMethod]
-        public void IdPropertyOk()
+        public void SupplierIdPropertyOk()
 
         {
             clsSupplier Supplier = new clsSupplier();
             int TestData = 1;
-            Supplier.Id = TestData;
+            Supplier.SupplierId = TestData;
             Assert.AreEqual(Supplier.Id, TestData);
        
         }
         [TestMethod]
         public void NamePropertyOK()
         {
+            clsSupplier Supplier clsSupplier
             string TestData = "Harry";
-            clsSupplier.Name = TestData;
-            Assert.AreEqual(clsSupplier.Name, TestData);
+            Supplier.Name = TestData;
+            Assert.AreEqual(Supplier.Name, TestData);
         }
         [TestMethod]
         public void EmailPropertyOk()
         {
-            String TestData = "Harry@gmail.com";
-            clsSupplier.Email = TestData;
-            Assert.AreEqual(clsSupplier.Email, TestData);
+            clsSupplier Supplier = new clsSupplier();
+            string TestData = "Harry@gmail.com";
+            Supplier.Email = TestData;
+            Assert.AreEqual(Supplier.Email, TestData);
         }
         [TestMethod]
         public void AvailabilityPropertyOk()
@@ -49,10 +51,16 @@ namespace Testing6
         public void QuantityPropertyOk()
         {
             clsSupplier Supplier = new clsSupplier();
-            Int32 TestData = 1;
+            int TestData = 1;
             Supplier.Quantity = TestData;
             Assert.AreEqual(Supplier.Quantity, TestData);
-
+        }    
+         [TestMethod]
+        public void ProductDescriptionPropertyOk()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            string TestData = "Shirts";
+            Assert.AreEqual(Supplier.ProductDescription, TestData);
         }
     }
 }
