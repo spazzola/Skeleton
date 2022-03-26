@@ -15,11 +15,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+
+
+
+
         //new instance of clsOrder
 
         clsOrder AnOrder = new clsOrder();
 
         //capture
+
+        string orderID = txtOrderID.Text;
+        Boolean isDelivered = cbIsDelivered.Checked;
+        string orderNo = txtOrderNo.Text;
+        string CustomerID = txtCustomerID.Text;
+        string DatePurchased = txtDatePurchased.Text;
+        string TotalPrice = lblTotalPriceOutput.Text;
+        string error = "";
+
+        if (error == "")
+        {
+            AnOrder.orderID = Convert.ToInt32(orderID);
+            AnOrder.isDelivered = isDelivered;
+            AnOrder.orderNo = orderNo;
+            AnOrder.CustomerID = Convert.ToInt32(CustomerID);
+            AnOrder.DatePurchased = Convert.ToDateTime(DatePurchased);
+            Session["AnOrder"] = AnOrder;
+            Response.Write("OrderViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = error;
+        }
+
 
         AnOrder.orderNo = txtOrderNo.Text;
 

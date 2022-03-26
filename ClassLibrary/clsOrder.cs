@@ -11,7 +11,8 @@ namespace ClassLibrary
         private DateTime mDatePurchased;
         private Double mTotalPrice;
 
-        public int orderID
+
+        public Int32 orderID
         {
             get
             {
@@ -48,9 +49,9 @@ namespace ClassLibrary
             }
         }
 
-        
 
-        public int CustomerID
+
+        public Int32 CustomerID
         {
             get
             {
@@ -73,7 +74,7 @@ namespace ClassLibrary
                 mDatePurchased = value;
             }
         }
-        public double TotalPrice {
+        public Double TotalPrice {
             get
             {
                 return mTotalPrice;
@@ -84,12 +85,12 @@ namespace ClassLibrary
             }
         }
 
-       
 
-        public bool Find(int OrderID)
+
+        public bool Find(int orderID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@Id", orderID);
+            DB.AddParameter("@id", orderID);
 
             DB.Execute("sproc_tblOrder_FilterById");
 
@@ -109,6 +110,72 @@ namespace ClassLibrary
             }
         }
 
-      
+
+        public string Valid(string orderNo, string CustomerID, string DatePurchased)
+        {
+
+            String Error = "";
+            DateTime DateTemp;
+
+            if (orderNo.Length < 5)
+            {
+                Error += "OrderNo too small";
+
+            }
+
+
+            if (orderNo.Length > 10)
+            {
+                Error += "OrderNo too large";
+            }
+
+            try
+            {
+                if (CustomerID.Length < 1)
+                {
+                    Error += "Customer ID is too small";
+                }
+
+
+                if (CustomerID == "0")
+                {
+                    Error += "Invalid Entry for Customer ID";
+                }
+
+                if (CustomerID.Length <= 1000000000)
+                {
+                    Error += "Customer ID too large";
+                }
+            }
+            catch
+            {
+                Error += "Invalid entry for customer";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(DatePurchased);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error += "The date cannot be in the past";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error += "The date cannot be in the future";
+                }
+
+            }
+            catch
+            {
+                Error += "The date was not a valid date";
+            }
+
+            return Error;
+        }
+
+        
+
+
     }
 }
