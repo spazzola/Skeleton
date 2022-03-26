@@ -7,6 +7,6 @@
         public int SupplierId { get; set; }
         public bool Availability { get; set; }
         public int Quantity { get; set; }
-        public static string ProductDescription { get; set }
+        public static string ProductDescription { get; set; }
     }
 }
