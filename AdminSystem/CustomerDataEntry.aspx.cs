@@ -10,18 +10,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        // Create instance of clsCustomer
+        // Make an instance of clsCustomer
         clsCustomer customer = new clsCustomer();
         //sets DateAdded to DateTime
         customer.dateAdded = new DateTime();
         // sets id
         //customer.id = int.Parse(idTxtBox.Text);
         // sets customer.name to a provided input
-        customer.name = nameTxtBox.Text;
+        //customer.name = nameTxtBox.Text;
+        customer.name = "Maximus Meto";
         // sets pass to provided input
-        customer.pass = passTxtBox.Text;
+        //customer.pass = passTxtBox.Text;
+        customer.pass = "Some password";
         // sets email to provided input
-        customer.email = mailTxtBox.Text;
+        //customer.email = mailTxtBox.Text;
+        customer.email = "mail1@mail.com";
+        // sets customer.exists to wether it exists or not
+        customer.exists = (bool)checkExist.Checked;
         // store customer in session object
         Session["customer"] = customer;
         // navigate to the viewer page
@@ -57,7 +62,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void checkExist_CheckedChanged(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
