@@ -185,7 +185,7 @@ namespace Testing2
 
             Found = AnOrder.Find(orderID);
 
-            if (AnOrder.DatePurchased != Convert.ToDateTime("25/03/2022 18:12:29"))
+            if (AnOrder.DatePurchased != Convert.ToDateTime("25/03/2022 00:00:00"))
             {
                 OK = false;
             }

@@ -33,6 +33,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string TotalPrice = lblTotalPriceOutput.Text;
         string error = "";
 
+        error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
+
         if (error == "")
         {
             AnOrder.orderID = Convert.ToInt32(orderID);

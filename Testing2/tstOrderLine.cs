@@ -8,11 +8,8 @@ namespace Testing2
     public class tstOrderLine
     {
 
-        String orderLineID = "1";
-        String orderNo = "3abc4def56";
-        String itemID = "123456";
-        String Quantity = "14";
-        String TotalPrice = 20.00.ToString();
+        
+        
         
 
 
@@ -146,7 +143,7 @@ namespace Testing2
 
             Found = AnOrderLine.Find(orderLineID);
 
-            if (AnOrderLine.itemID != 123456)
+            if (AnOrderLine.itemID != 1)
             {
                 OK = false;
             }
