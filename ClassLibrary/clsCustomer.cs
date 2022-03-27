@@ -4,7 +4,7 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public DateTime DateAdded;
+        public dateTime DateAdded;
         public int id { get; set; }
         public string name { get; set; }
         public string pass { get; set; }
