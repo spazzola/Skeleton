@@ -16,10 +16,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         customer.DateAdded = new DateTime();
         // sets id to 1
         customer.id = 1;
+        // sets customer.name to a provided input
+        customer.name = "New Name";
+        // sets pass to provided input
+        customer.pass = "new pass";
+        // sets email to provided input
+        customer.email = "new email";
+        // sets the exists variable to the value of checkExist
+        customer.exists = checkExist;
         // store customer in session object
         Session["customer"] = customer;
         // navigate to the viewer page
         Response.Redirect("CustomerViewer.aspx");
     }
-
 }

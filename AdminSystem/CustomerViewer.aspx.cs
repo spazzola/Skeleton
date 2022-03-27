@@ -14,6 +14,8 @@ public partial class _1Viewer : System.Web.UI.Page
         // gets data from session object
         customer = (clsCustomer)Session["customer"];
         // Display customer id for this entry
-        Response.Write(customer.id);
+        Response.Write(customer.dateAdded);
+
+        
     }
 }

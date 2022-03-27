@@ -27,9 +27,8 @@
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:CheckBox ID="checkExist" runat="server" Text="Account Exists" />
+            <asp:CheckBox ID="checkExist" runat="server" Text="Account Exists" OnCheckedChanged="checkExist_CheckedChanged" />
         </p>
-        <asp:Label ID="lblError" runat="server" Text="Error" width="68px"></asp:Label>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="Button1_Click" Text="OK" />
 &nbsp;&nbsp;&nbsp;
