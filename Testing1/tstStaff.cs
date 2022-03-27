@@ -2,11 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Testing1
-{
+namespace Testing1 {
+
     [TestClass]
-    public class tstStaff
-    {
+    public class tstStaff {
 
         string fullName = "Jack Smith";
         string login = "jack22";
