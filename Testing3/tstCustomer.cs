@@ -78,5 +78,15 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(customer.dateAdded, TestData);
         }
+        [TestMethod]
+
+        public void FindMethodOK()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean found = false;
+            Int32 id = 2132;
+            found = customer.Find(id);
+            Assert.IsTrue(found);
+        }
     }
 }
