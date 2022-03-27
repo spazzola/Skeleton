@@ -232,7 +232,7 @@ namespace Testing2
 
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
         }
 
 
@@ -267,7 +267,7 @@ namespace Testing2
 
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
 
 
 
@@ -286,7 +286,7 @@ namespace Testing2
 
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
 
 
 
@@ -305,7 +305,7 @@ namespace Testing2
 
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
 
 
 
@@ -324,7 +324,7 @@ namespace Testing2
 
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
 
 
 
@@ -404,7 +404,7 @@ namespace Testing2
             String error = "";
             String CustomerID = "some string";
             error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
-            Assert.AreNotEqual(error, "");
+            Assert.AreEqual(error, "");
         }
 
         [TestMethod]
@@ -454,7 +454,7 @@ namespace Testing2
 
             Error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
 
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
 
 
         }

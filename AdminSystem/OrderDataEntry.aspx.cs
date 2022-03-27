@@ -51,12 +51,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
 
 
-        AnOrder.orderNo = txtOrderNo.Text;
-
-        Session["AnOrder"] = AnOrder;
-
-        //navigate to view page
-        Response.Redirect("OrderViewer.aspx");
+        
 
     }
 

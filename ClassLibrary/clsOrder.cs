@@ -142,7 +142,7 @@ namespace ClassLibrary
                     Error += "Invalid Entry for Customer ID";
                 }
 
-                if (CustomerID.Length <= 1000000000)
+                if (CustomerID.Length >= 1000000000)
                 {
                     Error += "Customer ID too large";
                 }
