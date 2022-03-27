@@ -11,25 +11,25 @@
         <div>
         </div>
         <asp:Label ID="lblDate" runat="server" Text="date added"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
         <p>
-            <asp:Label ID="lblID" runat="server" Text="id"></asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:Label ID="lblID" runat="server" Text="id" width="68px"></asp:Label>
+            <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblName" runat="server" Text="name"></asp:Label>
+            <asp:Label ID="lblName" runat="server" Text="name" width="68px"></asp:Label>
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
         </p>
-        <asp:Label ID="lblPass" runat="server" Text="pass"></asp:Label>
+        <asp:Label ID="lblPass" runat="server" Text="pass" width="68px"></asp:Label>
         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="lblEmail" runat="server" Text="email"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="email" width="68px"></asp:Label>
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:CheckBox ID="checkExist" runat="server" Text="Account Exists" />
         </p>
-        <asp:Label ID="lblError" runat="server" Text="Error"></asp:Label>
+        <asp:Label ID="lblError" runat="server" Text="Error" width="68px"></asp:Label>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="Button1_Click" Text="OK" />
 &nbsp;&nbsp;&nbsp;
