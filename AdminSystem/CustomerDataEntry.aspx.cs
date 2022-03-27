@@ -27,4 +27,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // navigate to the viewer page
         Response.Redirect("CustomerViewer.aspx");
     }
+
+    protected void dateTxtBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void idTxtBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void nameTxtBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void passTxtBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void mailTxtBox_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }
