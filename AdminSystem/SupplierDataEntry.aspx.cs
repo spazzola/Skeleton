@@ -17,10 +17,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     {
         clsSupplier Supplier = new clsSupplier();
-        clsSupplier.Name = txtName.Text;
+        string SupplierId = txtSupplier.Text;
+
+        string Name = txtName.Text;
+
+        string Email = txtEmail.Text;
+        string Availability = chkAvailability.Checked.ToString();
+
+        string Quantity = txtQuantity.Text;
+
+        string ProductDescription = txtProductDescription.Text;
+
         Session["Supplier"] = Supplier;
+
         Response.Redirect("SupplierViewer.aspx");
-  
+
+
+
     }
 
 

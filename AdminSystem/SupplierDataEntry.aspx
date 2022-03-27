@@ -39,7 +39,7 @@
             <asp:TextBox ID="txtQuantity" runat="server" height="35px" style="z-index: 1; left: 10px; top: 272px; position: absolute; margin-left: 214px; margin-top: 0px" width="308px"></asp:TextBox>
             <asp:Button ID="btnCancel" runat="server" Height="74px" style="margin-left: 222px; margin-top: 59px" Text="Cancel" width="217px" />
         </p>
-        <p id="chkAvailability">
+        <p>
             <asp:CheckBox ID="chkAvailability" runat="server" Text="Availability" width="105px" />
             <asp:Button ID="btnOk" runat="server" Height="66px" OnClick="btnOk_Click" style="margin-left: 448px" Text="Ok" Width="327px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
