@@ -14,8 +14,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer customer = new clsCustomer();
         //sets DateAdded to DateTime
         customer.dateAdded = new DateTime();
-        // sets id to 1
-        customer.id = int.Parse(idTxtBox.Text);
+        // sets id
+        //customer.id = int.Parse(idTxtBox.Text);
         // sets customer.name to a provided input
         customer.name = nameTxtBox.Text;
         // sets pass to provided input
