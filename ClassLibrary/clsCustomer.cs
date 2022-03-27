@@ -4,11 +4,11 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public dateTime DateAdded;
+        public DateTime dateAdded;
         public int id { get; set; }
         public string name { get; set; }
         public string pass { get; set; }
         public string email { get; set; }
-        public bool exist { get; set; }
+        public bool exists { get; set; }
     }
 }
