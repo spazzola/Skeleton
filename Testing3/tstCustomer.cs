@@ -84,7 +84,7 @@ namespace Testing3
         {
             clsCustomer customer = new clsCustomer();
             Boolean found = false;
-            Int32 id = 2132;
+            Int32 id = 0;
             found = customer.Find(id);
             Assert.IsTrue(found);
         }
