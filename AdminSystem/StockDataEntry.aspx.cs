@@ -53,7 +53,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             txtItemDesc.Text = Stock.ItemDescription;
             txtItemPrice.Text = Convert.ToString(Stock.ItemPrice);
-            txtItemAmount.Text = Convert.ToString(Stock.ItemPrice);
+            txtItemAmount.Text = Convert.ToString(Stock.ItemAmount);
             chkAvailable.Checked = Stock.ItemAvailable;
             txtNextShipment.Text = Convert.ToString(Stock.ItemShipment);
         }

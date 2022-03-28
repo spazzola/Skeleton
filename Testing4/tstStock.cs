@@ -98,7 +98,7 @@ namespace Testing4
             Boolean Found = false;
             Boolean OK = true;
             Int32 ID = 1;
-            String Desc = "A red jumper";
+            String Desc = "A red Jumper";
             Found = Stock.Find(ID);
             if (Stock.ItemDescription != Desc)
             {
@@ -114,7 +114,7 @@ namespace Testing4
             Boolean Found = false;
             Boolean OK = true;
             Int32 ID = 1;
-            float Price = 4.2f;
+            float Price = 11.7f;
             Found = Stock.Find(ID);
             if (Stock.ItemPrice != Price)
             {
@@ -130,7 +130,7 @@ namespace Testing4
             Boolean Found = false;
             Boolean OK = true;
             Int32 ID = 1;
-            int Amount = 20;
+            int Amount = 30;
             Found = Stock.Find(ID);
             if (Stock.ItemAmount != Amount)
             {
@@ -162,7 +162,7 @@ namespace Testing4
             Boolean Found = false;
             Boolean OK = true;
             Int32 ID = 1;
-            DateTime Shipment = Convert.ToDateTime("16/08/22");
+            DateTime Shipment = Convert.ToDateTime("22/05/22");
             Found = Stock.Find(ID);
             if (Stock.ItemShipment != Shipment)
             {
