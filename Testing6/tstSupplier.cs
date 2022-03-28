@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
 
-namespace Test_Framework
+namespace Testing6
 
 {
 
@@ -132,9 +132,9 @@ namespace Test_Framework
 
             Boolean Found = false;
 
-            int Id = 1;
+            int SupplierId = 1;
 
-            Found = Supplier.Find(Id);
+            Found = Supplier.Find(SupplierId);
 
             Assert.IsTrue(Found);
 
