@@ -80,13 +80,23 @@ namespace ClassLibrary
 
         public bool Find(int ItemID)
         {
-            mItemID = 1;
-            mItemDescription = "A red jumper";
-            mItemPrice = 4.2f;
-            mItemAmount = 20;
-            mItemAvailable = true;
-            mItemShipment = Convert.ToDateTime("16/08/22");
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ID", ItemID);
+            DB.Execute("dbo.sproc_tblItem_FilterById");
+            if (DB.Count == 1)
+            {
+                mItemID = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
+                mItemDescription = Convert.ToString(DB.DataTable.Rows[0]["ItemDescription"]);
+                mItemPrice = float.Parse(Convert.ToString(DB.DataTable.Rows[0]["ItemPrice"]));
+                mItemAmount = Convert.ToInt32(DB.DataTable.Rows[0]["ItemAmount"]);
+                mItemAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["IsItemAvailable"]);
+                mItemShipment = Convert.ToDateTime(DB.DataTable.Rows[0]["NextShipment"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string Valid(string description, string price, string amount, string available, string shipment)
