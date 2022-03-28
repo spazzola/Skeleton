@@ -240,7 +240,7 @@ namespace Testing6
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.ProductDescription != "")
+            if (Supplier.ProductDescription != "Shirt")
 
             {
 
