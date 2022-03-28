@@ -12,6 +12,6 @@ public partial class _1Viewer : System.Web.UI.Page
     {
         clsSupplier Supplier = new clsSupplier();
         Supplier = (clsSupplier)Session["Supplier"];
-        Response.Write(Supplier.Id);
+        Response.Write(Supplier.SupplierId);
     }
 }
