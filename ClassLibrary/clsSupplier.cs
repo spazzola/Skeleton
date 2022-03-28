@@ -62,9 +62,9 @@ namespace ClassLibrary
 
         }
 
-        private int mId;
+        private int mSupplierId;
 
-        public int Id
+        public int SupplierId
 
         {
 
@@ -72,7 +72,7 @@ namespace ClassLibrary
 
             {
 
-                return mId;
+                return mSupplierId;
 
             }
 
@@ -80,7 +80,7 @@ namespace ClassLibrary
 
             {
 
-                mId = value;
+                mSupplierId = value;
 
             }
 
@@ -163,15 +163,15 @@ namespace ClassLibrary
 
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@Id", Id);
+            DB.AddParameter("@SupplierId", SupplierId);
 
-            DB.Execute("Spro_tblSupplier_FilterById");
+            DB.Execute("Sproc_tblSupplier_FilterBySupplierId");
 
             if (DB.Count == 1)
 
             {
 
-                mId = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
 
                 mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
 
