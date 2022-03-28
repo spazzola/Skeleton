@@ -7,7 +7,6 @@ namespace Testing4
     [TestClass]
     public class tstStock
     {
-        String ID = "1";
         String Description = "A red Jumper";
         String Price = 4.2f.ToString();
         String Amount = "10";
@@ -71,7 +70,7 @@ namespace Testing4
         {
             clsStock Stock = new clsStock();
             Boolean Found = false;
-            Int32 StockNo = 21;
+            Int32 StockNo = 1;
             Found = Stock.Find(StockNo);
             Assert.IsTrue(Found);
         }
