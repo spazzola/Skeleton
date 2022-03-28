@@ -16,6 +16,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStock Stock = new clsStock();
+        string ID = txtID.Text;
         string Desc = txtItemDesc.Text;
         string Price = txtItemPrice.Text;
         string Amount = txtItemAmount.Text;
@@ -26,6 +27,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         
         if (Error == "")
         {
+            Stock.ItemID = Convert.ToInt32(txtID.Text);
             Stock.ItemAmount = Int16.Parse(txtItemAmount.Text);
             Stock.ItemAvailable = chkAvailable.Checked;
             Stock.ItemPrice = float.Parse(txtItemPrice.Text);
@@ -37,6 +39,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
         else
         {
             lblError.Text = Error;
+        }
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStock Stock = new clsStock();
+        Int32 ID;
+        Boolean Found = false;
+        ID = Convert.ToInt32(txtID.Text);
+        Found = Stock.Find(ID);
+        if (Found == true)
+        {
+            txtItemDesc.Text = Stock.ItemDescription;
+            txtItemPrice.Text = Convert.ToString(Stock.ItemPrice);
+            txtItemAmount.Text = Convert.ToString(Stock.ItemPrice);
+            chkAvailable.Checked = Stock.ItemAvailable;
+            txtNextShipment.Text = Convert.ToString(Stock.ItemShipment);
         }
     }
 }
