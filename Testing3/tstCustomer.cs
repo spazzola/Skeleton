@@ -63,7 +63,7 @@ namespace Testing3
             //Create an instance of customer
             clsCustomer acc = new clsCustomer();
             //Test it
-            Assert.IsTrue(acc.exist);
+            Assert.IsTrue(acc.exists);
         }
 
         [TestMethod]
@@ -74,9 +74,19 @@ namespace Testing3
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            customer.DateAdded = TestData;
+            customer.dateAdded = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.DateAdded, TestData);
+            Assert.AreEqual(customer.dateAdded, TestData);
+        }
+        [TestMethod]
+
+        public void FindMethodOK()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean found = false;
+            Int32 id = 0;
+            found = customer.Find(id);
+            Assert.IsTrue(found);
         }
     }
 }
