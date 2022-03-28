@@ -11,11 +11,11 @@
         <div>
             <asp:Label ID="lblID" runat="server" Text="ID" width="100px"></asp:Label>
             <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </div>
         <p>
             <asp:Label ID="lblItemDesc" runat="server" Text="Item Description" width="100px"></asp:Label>
             <asp:TextBox ID="txtItemDesc" runat="server"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </p>
         <asp:Label ID="lblItemPrice" runat="server" Text="Item Price" width="100px"></asp:Label>
         <asp:TextBox ID="txtItemPrice" runat="server"></asp:TextBox>
