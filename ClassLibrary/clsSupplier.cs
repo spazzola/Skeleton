@@ -62,9 +62,9 @@ namespace ClassLibrary
 
         }
 
-        private int mId;
+        private int mSupplierId;
 
-        public int Id
+        public int SupplierId
 
         {
 
@@ -72,7 +72,7 @@ namespace ClassLibrary
 
             {
 
-                return mId;
+                return mSupplierId;
 
             }
 
@@ -80,7 +80,7 @@ namespace ClassLibrary
 
             {
 
-                mId = value;
+                mSupplierId = value;
 
             }
 
@@ -163,7 +163,7 @@ namespace ClassLibrary
 
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@Id", Id);
+            DB.AddParameter("@Id", SupplierId);
 
             DB.Execute("Spro_tblSupplier_FilterById");
 
@@ -171,7 +171,7 @@ namespace ClassLibrary
 
             {
 
-                mId = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
 
                 mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
 
@@ -190,6 +190,11 @@ namespace ClassLibrary
             {
                 return false;
             }
+        }
+
+        public string Valid(object supplierId, string name, string email, string availability, string quantity, string productDescription)
+        {
+            throw new NotImplementedException();
         }
     }
 }

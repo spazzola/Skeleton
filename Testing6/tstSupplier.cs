@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
 
-namespace Test_Framework
+namespace Testing6
 
 {
 
@@ -132,9 +132,9 @@ namespace Test_Framework
 
             Boolean Found = false;
 
-            int Id = 1;
+            Int32 SupplierId = 1;
 
-            Found = Supplier.Find(Id);
+            Found = Supplier.Find(SupplierId);
 
             Assert.IsTrue(Found);
 
@@ -156,7 +156,7 @@ namespace Test_Framework
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.SupplierId != 1)
+            if (Supplier.SupplierId != SupplierId)
 
             {
 
@@ -239,8 +239,9 @@ namespace Test_Framework
             int SupplierId = 1;
 
             Found = Supplier.Find(SupplierId);
+            string ProductDescription = "Shirt";
 
-            if (Supplier.ProductDescription != "")
+            if (Supplier.ProductDescription != ProductDescription)
 
             {
 
@@ -265,10 +266,11 @@ namespace Test_Framework
             Boolean OK = true;
 
             int SupplierId = 1;
+            int Quantity = 1;
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.Quantity != 1)
+            if (Supplier.Quantity != Quantity)
 
             {
 
@@ -293,10 +295,11 @@ namespace Test_Framework
             Boolean OK = true;
 
             int SupplierId = 1;
+            Boolean Availability = true;
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.Availability != true)
+            if (Supplier.Availability != Availability)
 
             {
 
