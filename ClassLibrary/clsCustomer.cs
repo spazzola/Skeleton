@@ -4,8 +4,18 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-
-        public DateTime dateAdded;
+        private DateTime testDate;
+        public DateTime dateAdded
+        {
+            get
+            {
+                return dateAdded;
+            }
+            set
+            {
+                date = value;
+            }
+        }
         private Int32 idToFind;
         public int id {
             get
@@ -71,7 +81,11 @@ namespace ClassLibrary
         public bool Find(int id)
         {
             idToFind = 3401;
-            return true;
+            testDate = new DateTime("21/03/2110");
+            nameToFind = "Shpaximirr Maxan";
+            mailToFind = "shpaximir@mail.com";
+            passToFind = "asdfgh12";
+            maybe = true;
         }
 
         public string GetUserData()
