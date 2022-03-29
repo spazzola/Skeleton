@@ -4,8 +4,21 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public Date dateAdded;
-        public int id { get; set; }
+
+        private Int32 idToFind;
+        public DateTime dateAdded;
+        public int id {
+            get
+            {
+                // this line of code sends data out of the property
+                return idToFind;
+            }
+            set
+            {
+                // this line of code allows data into the property
+                idToFind = value;
+            } 
+        }
         public string name { get; set; }
         public string pass { get; set; }
         public string email { get; set; }
@@ -13,8 +26,8 @@ namespace ClassLibrary
 
         public bool Find(int id)
         {
-            bool found;
-            return found;
+            idToFind = 3401;
+            return true;
         }
 
         public string GetUserData()
