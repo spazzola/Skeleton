@@ -19,7 +19,6 @@ namespace Testing3
         [TestMethod]
         public void CheckIDVal()
         {
-
             clsCustomer acc = new clsCustomer();
             Assert.AreNotEqual(acc.id, null);
         }
