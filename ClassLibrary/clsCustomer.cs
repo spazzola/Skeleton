@@ -13,7 +13,7 @@ namespace ClassLibrary
 
         public bool Find(int id)
         {
-            bool found = false;
+            bool found;
             return found;
         }
 
