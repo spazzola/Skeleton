@@ -5,8 +5,8 @@ namespace ClassLibrary
     public class clsCustomer
     {
 
-        private Int32 idToFind;
         public DateTime dateAdded;
+        private Int32 idToFind;
         public int id {
             get
             {
@@ -19,10 +19,54 @@ namespace ClassLibrary
                 idToFind = value;
             } 
         }
-        public string name { get; set; }
-        public string pass { get; set; }
-        public string email { get; set; }
-        public bool exists { get; set; }
+
+        private string nameToFind;
+        public string name {
+            get 
+            {
+                return name;
+            }
+            set
+            {
+                nameToFind = value;
+            }
+                }
+
+        private string passToFind;
+        public string pass { 
+            get
+            {
+                return pass;
+            }
+            set
+            {
+                passToFind = value;
+            }
+               }
+
+        private string mailToFind;
+        public string email { 
+            get
+            {
+                return email;
+            }
+            set
+            {
+                mailToFind = value;
+            }
+                }
+
+        public bool maybe;
+        public bool exists { 
+            get
+            {
+                return exists;
+            }
+            set
+            {
+                maybe = value;
+            } 
+        }
 
         public bool Find(int id)
         {
