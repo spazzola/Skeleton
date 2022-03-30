@@ -16,7 +16,7 @@
         <div>
         </div>
         <p class="auto-style1">
-            <asp:Label ID="tblSupplierId" runat="server" Text="Supplier Id"></asp:Label>
+            <asp:Label ID="tblSupplierId" runat="server" Text="SupplierId"></asp:Label>
 &nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtSupplier" runat="server" height="35px" style="z-index: 1; left: 139px; top: 61px; position: absolute; margin-left: 13px; margin-top: 0px" width="308px"></asp:TextBox>
         </p>

@@ -13,5 +13,11 @@ public partial class _1Viewer : System.Web.UI.Page
         clsSupplier Supplier = new clsSupplier();
         Supplier = (clsSupplier)Session["Supplier"];
         Response.Write(Supplier.SupplierId);
+        Response.Write(Supplier.Name);
+        Response.Write(Supplier.Email);
+        Response.Write(Supplier.Availability);
+        Response.Write(Supplier.Quantity);
+        Response.Write(Supplier.ProductDescription);
+        
     }
 }
