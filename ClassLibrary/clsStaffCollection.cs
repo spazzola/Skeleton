@@ -45,7 +45,41 @@ namespace ClassLibrary {
 
             }
         }
-        public clsStaff thisStaff { get; set; }
+        clsStaff mThisStaff = new clsStaff();
+        public clsStaff thisStaff { 
+            get {
+                return mThisStaff;
+            }
+            set {
+                mThisStaff = value;
+            }
+        }
 
+        public int Add() {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@FullName", mThisStaff.fullName);
+            DB.AddParameter("@Login", mThisStaff.login);
+            DB.AddParameter("@Password", mThisStaff.password);
+            DB.AddParameter("@IsAdmin", mThisStaff.isAdmin);
+            DB.AddParameter("@LastLogged", mThisStaff.lastLogged);
+            DB.AddParameter("@Salary", mThisStaff.salary);
+
+            return DB.Execute("sproc_tblStaffMember_Insert");
+        }
+
+        public void Update() {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Id", mThisStaff.staffId);
+            DB.AddParameter("@FullName", mThisStaff.fullName);
+            DB.AddParameter("@Login", mThisStaff.login);
+            DB.AddParameter("@Password", mThisStaff.password);
+            DB.AddParameter("@IsAdmin", mThisStaff.isAdmin);
+            DB.AddParameter("@LastLogged", mThisStaff.lastLogged);
+            DB.AddParameter("@Salary", mThisStaff.salary);
+
+            DB.Execute("sproc_tblStaffMember_Update");
+        }
     }
 }

@@ -25,13 +25,17 @@
         <asp:Label ID="lblPassword" runat="server" Text="Password" width="202px"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
         <br />
-        <asp:CheckBox ID="chkIsAdmin" runat="server" Text="Is an Admin" width="202px" />
         <p>
-            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <asp:Label ID="lblLastLogged" runat="server" Text="Last Logged"></asp:Label>
+            <asp:TextBox ID="txtLastLogged" runat="server"></asp:TextBox>
         </p>
         <p>
-            &nbsp;</p>
-        <p>
+        <asp:CheckBox ID="chkIsAdmin" runat="server" Text="Is an Admin" width="202px" />
+        </p>
+        <p style="margin-bottom: 172px">
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
+        <p style="margin-bottom: 172px">
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </p>

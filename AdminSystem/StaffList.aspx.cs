@@ -20,4 +20,22 @@ public partial class _1_List : System.Web.UI.Page {
         lstStaffList.DataTextField = "FullName";
         lstStaffList.DataBind();
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e) {
+        Session["StaffId"] = -1;
+
+        Response.Redirect("StaffDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e) {
+        Int32 staffId;
+
+        if (lstStaffList.SelectedIndex != -1) {
+            staffId = Convert.ToInt32(lstStaffList.SelectedValue);
+            Session["StaffId"] = staffId;
+            Response.Redirect("StaffDataEntry.aspx");
+        } else {
+            lblError.Text = "Please select a record to edit from the list.";
+        }
+    }
 }
