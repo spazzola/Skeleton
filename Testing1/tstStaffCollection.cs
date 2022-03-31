@@ -121,5 +121,30 @@ namespace Testing1 {
             allStaff.thisStaff.Find(primaryKey);
             Assert.AreEqual(allStaff.thisStaff, testItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK() {
+            clsStaffCollection allStaff = new clsStaffCollection();
+
+            clsStaff testItem = new clsStaff();
+            Int32 primaryKey = 0;
+            testItem.fullName = "Ron";
+            testItem.login = "ron11";
+            testItem.password = "ron22";
+            testItem.salary = 1000.00;
+            testItem.isAdmin = true;
+            testItem.lastLogged = Convert.ToDateTime("13/02/2020 13:00");
+
+            allStaff.thisStaff = testItem;
+            primaryKey = allStaff.Add();
+            testItem.staffId = primaryKey;
+
+            allStaff.thisStaff.Find(primaryKey);
+            allStaff.Delete();
+
+            Boolean found = allStaff.thisStaff.Find(primaryKey);
+
+            Assert.IsFalse(found);
+        }
     }
 }

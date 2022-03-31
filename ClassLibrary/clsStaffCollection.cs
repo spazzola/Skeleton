@@ -81,5 +81,11 @@ namespace ClassLibrary {
 
             DB.Execute("sproc_tblStaffMember_Update");
         }
+
+        public void Delete() {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Id", mThisStaff.staffId);
+            DB.Execute("sproc_tblStaffMember_Delete");
+        }
     }
 }
