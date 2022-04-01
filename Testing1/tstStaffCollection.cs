@@ -71,5 +71,119 @@ namespace Testing1 {
             Assert.AreEqual(allStaff.count, testList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK() {
+            clsStaffCollection allStaff = new clsStaffCollection();
+
+            clsStaff testItem = new clsStaff();
+            Int32 primaryKey = 0;
+            testItem.fullName = "Ron";
+            testItem.login = "ron11";
+            testItem.password = "ron22";
+            testItem.salary = 1000.00;
+            testItem.isAdmin = true;
+            testItem.lastLogged = Convert.ToDateTime("13/02/2020 13:00");
+
+            allStaff.thisStaff = testItem;
+            primaryKey = allStaff.Add();
+            testItem.staffId = primaryKey;
+
+            allStaff.thisStaff.Find(primaryKey);
+
+            Assert.AreEqual(allStaff.thisStaff, testItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK() {
+            clsStaffCollection allStaff = new clsStaffCollection();
+
+            clsStaff testItem = new clsStaff();
+            Int32 primaryKey = 0;
+            testItem.fullName = "Ron";
+            testItem.login = "ron11";
+            testItem.password = "ron22";
+            testItem.salary = 1000.00;
+            testItem.isAdmin = true;
+            testItem.lastLogged = Convert.ToDateTime("13/02/2020 13:00");
+
+            allStaff.thisStaff = testItem;
+            primaryKey = allStaff.Add();
+            testItem.staffId = primaryKey;
+
+            testItem.fullName = "Elon";
+            testItem.login = "elon1";
+            testItem.password = "lon22";
+            testItem.salary = 1.00;
+            testItem.isAdmin = false;
+            testItem.lastLogged = Convert.ToDateTime("01/01/2000 10:00");
+
+            allStaff.Update();
+            allStaff.thisStaff.Find(primaryKey);
+            Assert.AreEqual(allStaff.thisStaff, testItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK() {
+            clsStaffCollection allStaff = new clsStaffCollection();
+
+            clsStaff testItem = new clsStaff();
+            Int32 primaryKey = 0;
+            testItem.fullName = "Ron";
+            testItem.login = "ron11";
+            testItem.password = "ron22";
+            testItem.salary = 1000.00;
+            testItem.isAdmin = true;
+            testItem.lastLogged = Convert.ToDateTime("13/02/2020 13:00");
+
+            allStaff.thisStaff = testItem;
+            primaryKey = allStaff.Add();
+            testItem.staffId = primaryKey;
+
+            allStaff.thisStaff.Find(primaryKey);
+            allStaff.Delete();
+
+            Boolean found = allStaff.thisStaff.Find(primaryKey);
+
+            Assert.IsFalse(found);
+        }
+
+        [TestMethod]
+        public void ReportByFullNameMethodOK() {
+            clsStaffCollection allStaff = new clsStaffCollection();
+            clsStaffCollection filteredStaffs = new clsStaffCollection();
+
+            filteredStaffs.ReportByFullName("");
+
+            Assert.AreEqual(allStaff.count, filteredStaffs.count);
+        }
+
+        [TestMethod]
+        public void ReportByFullNameNotFound() {
+            clsStaffCollection filteredStaffs = new clsStaffCollection();
+
+            filteredStaffs.ReportByFullName("xxx xxxx");
+
+            Assert.AreEqual(0, filteredStaffs.count);
+        }
+
+        [TestMethod]
+        public void ReportByFullNameTestDataFound() {
+            clsStaffCollection filteredStaffs = new clsStaffCollection();
+            Boolean OK = true;
+
+            filteredStaffs.ReportByFullName("elon melon");
+            if (filteredStaffs.count == 2) {
+                if (filteredStaffs.staffList[0].staffId != 1) {
+                    OK = false;
+                }
+                if (filteredStaffs.staffList[1].staffId != 2) {
+                    OK = false;
+                }
+            } else {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
