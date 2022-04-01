@@ -50,4 +50,24 @@ public partial class _1_List : System.Web.UI.Page {
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+
+    protected void Button1_Click(object sender, EventArgs e) {
+        clsStaffCollection allStaff = new clsStaffCollection();
+        allStaff.ReportByFullName(txtFullName.Text);
+        lstStaffList.DataSource = allStaff.staffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "FullName";
+        lstStaffList.DataBind();
+    }
+
+    protected void Button2_Click(object sender, EventArgs e) {
+        clsStaffCollection allStaff = new clsStaffCollection();
+        allStaff.ReportByFullName("");
+        txtFullName.Text = "";
+        lstStaffList.DataSource = allStaff.staffList;
+        lstStaffList.DataValueField = "StaffId";
+        lstStaffList.DataTextField = "FullName";
+        lstStaffList.DataBind();
+    }
 }
