@@ -71,7 +71,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsCustomer customer = new clsCustomer();
             //create some test data to assign to the property
-            DateTime TestData = DateTime.Now.Date;
+            DateTime testData = DateTime.Now.Date;
             //assign the data to the property
             customer.dateAdded = TestData;
             //test to see that the two values are the same
@@ -114,7 +114,7 @@ namespace Testing3
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnAddress.DateAdded = TestData;
+            customer.dateAdded = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(Ancustomer.dateAdded, TestData);
         }
