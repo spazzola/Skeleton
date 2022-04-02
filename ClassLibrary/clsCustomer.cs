@@ -13,7 +13,7 @@ namespace ClassLibrary
             }
             set
             {
-                date = value;
+                testDate = value;
             }
         }
         private Int32 idToFind;
@@ -81,11 +81,12 @@ namespace ClassLibrary
         public bool Find(int id)
         {
             idToFind = 3401;
-            testDate = new DateTime("21/03/2110");
+            testDate = new DateTime(2041, 3, 1, 7, 0, 0);
             nameToFind = "Shpaximirr Maxan";
             mailToFind = "shpaximir@mail.com";
             passToFind = "asdfgh12";
             maybe = true;
+            return true;
         }
 
         public string GetUserData()
