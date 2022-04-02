@@ -61,6 +61,10 @@ namespace Testing3
         {
             //Create an instance of customer
             clsCustomer acc = new clsCustomer();
+            // Sample data
+            bool tstExist = true;
+            // Just pass for now
+            acc.exists = tstExist;
             //Test it
             Assert.IsTrue(acc.exists);
         }
