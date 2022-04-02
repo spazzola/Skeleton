@@ -9,60 +9,60 @@ namespace ClassLibrary
         {
             get
             {
-                return dateAdded;
+                return testDate;
             }
             set
             {
-                date = value;
+                testDate = value;
             }
         }
-        private Int32 idToFind;
+        private Int32 testId;
         public int id {
             get
             {
                 // this line of code sends data out of the property
-                return idToFind;
+                return testId;
             }
             set
             {
                 // this line of code allows data into the property
-                idToFind = value;
+                testId = value;
             } 
         }
 
-        private string nameToFind;
+        private string testName;
         public string name {
             get 
             {
-                return name;
+                return testName;
             }
             set
             {
-                nameToFind = value;
+                testName = value;
             }
                 }
 
-        private string passToFind;
+        private string testPass;
         public string pass { 
             get
             {
-                return pass;
+                return testPass;
             }
             set
             {
-                passToFind = value;
+                testPass = value;
             }
                }
 
-        private string mailToFind;
+        private string testMail;
         public string email { 
             get
             {
-                return email;
+                return testMail;
             }
             set
             {
-                mailToFind = value;
+                testMail = value;
             }
                 }
 
@@ -70,7 +70,7 @@ namespace ClassLibrary
         public bool exists { 
             get
             {
-                return exists;
+                return maybe;
             }
             set
             {
@@ -80,12 +80,13 @@ namespace ClassLibrary
 
         public bool Find(int id)
         {
-            idToFind = 3401;
-            testDate = new DateTime("21/03/2110");
-            nameToFind = "Shpaximirr Maxan";
-            mailToFind = "shpaximir@mail.com";
-            passToFind = "asdfgh12";
+            testId = 3401;
+            testDate = new DateTime(2041, 3, 1, 7, 0, 0);
+            testName = "Shpaximirr Maxan";
+            testMail = "shpaximir@mail.com";
+            testPass = "asdfgh12";
             maybe = true;
+            return true;
         }
 
         public string GetUserData()
