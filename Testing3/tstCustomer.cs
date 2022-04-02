@@ -182,7 +182,7 @@ namespace Testing3
             //assign the data to the property
             customer.exists = testExist;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.exist);
+            Assert.AreEqual(customer.exists);
         }
     }
 }
