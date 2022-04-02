@@ -70,7 +70,7 @@ namespace ClassLibrary
         public bool exists { 
             get
             {
-                return exists;
+                return maybe;
             }
             set
             {
