@@ -4,27 +4,88 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public DateTime dateAdded;
-        public int id { get; set; }
-        public string name { get; set; }
-        public string pass { get; set; }
-        public string email { get; set; }
-        public bool exists { get; set; }
+        private DateTime testDate;
+        public DateTime dateAdded
+        {
+            get
+            {
+                return dateAdded;
+            }
+            set
+            {
+                date = value;
+            }
+        }
+        private Int32 idToFind;
+        public int id {
+            get
+            {
+                // this line of code sends data out of the property
+                return idToFind;
+            }
+            set
+            {
+                // this line of code allows data into the property
+                idToFind = value;
+            } 
+        }
+
+        private string nameToFind;
+        public string name {
+            get 
+            {
+                return name;
+            }
+            set
+            {
+                nameToFind = value;
+            }
+                }
+
+        private string passToFind;
+        public string pass { 
+            get
+            {
+                return pass;
+            }
+            set
+            {
+                passToFind = value;
+            }
+               }
+
+        private string mailToFind;
+        public string email { 
+            get
+            {
+                return email;
+            }
+            set
+            {
+                mailToFind = value;
+            }
+                }
+
+        public bool maybe;
+        public bool exists { 
+            get
+            {
+                return exists;
+            }
+            set
+            {
+                maybe = value;
+            } 
+        }
 
         public bool Find(int id)
         {
-            bool found = false;
-            if (this.id == id)
-            {
-                Console.WriteLine(GetUserData());
-                found = true;
-            }
-            else
-            {
-                found = false;
-            }
-
-            return found;
+            idToFind = 3401;
+            testDate = new DateTime("21/03/2110");
+            nameToFind = "Shpaximirr Maxan";
+            mailToFind = "shpaximir@mail.com";
+            passToFind = "asdfgh12";
+            maybe = true;
         }
 
         public string GetUserData()
