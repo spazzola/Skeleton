@@ -16,7 +16,7 @@ public partial class _1Viewer : System.Web.UI.Page
 
         //retrieve data from session object
 
-        AnOrder = (clsOrder)Session["AnOrder"];
+        AnOrder = (clsOrder)Session["orderID"];
 
         //display orderNo for entry
 

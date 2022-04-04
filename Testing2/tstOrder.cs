@@ -407,40 +407,9 @@ namespace Testing2
             Assert.AreEqual(error, "");
         }
 
-        [TestMethod]
+        
 
-        public void DatePurchasedExtremeMin()
-        {
-            clsOrder AnOrder = new clsOrder();
-            String error = "";
-            DateTime testDate;
-            testDate = DateTime.Now.Date;
-            testDate = testDate.AddYears(-50);
-            string DatePurchased = testDate.ToString();
-
-            error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
-
-            Assert.AreNotEqual(error, "");
-
-
-         }
-
-        [TestMethod]
-        public void DatePurchasedMinusOne()
-        {
-            clsOrder AnOrder = new clsOrder();
-            String Error = "";
-            DateTime testDate;
-            testDate = DateTime.Now.Date;
-            testDate = testDate.AddSeconds(-1);
-            string DatePurchased = testDate.ToString();
-
-            Error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
-
-            Assert.AreNotEqual(Error, "");
-
-
-        }
+        
 
         [TestMethod]
 

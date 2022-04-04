@@ -10,17 +10,57 @@ namespace ClassLibrary
         
         List<clsOrder> mOrderList = new List<clsOrder>();
 
+        clsOrder mThisOrder = new clsOrder();
+
+
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                return mThisOrder;
+            }
+            set
+            {
+                mThisOrder = value;
+            }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            //DB.AddParameter("@orderID", mThisOrder.orderID);
+            DB.AddParameter("@isDelivered", mThisOrder.isDelivered);
+            DB.AddParameter("@orderNo", mThisOrder.orderNo);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@DatePurchased", mThisOrder.DatePurchased);
+            DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
+
+            return DB.Execute("sproc_tblOrder_Insert");
+
+        }
+
         public clsOrderCollection()
         {
-            int Index = 0;
-
-            int RecordCount = 0;
-
             clsDataConnection DB = new clsDataConnection();
 
             DB.Execute("sproc_tblOrder_SelectAll");
 
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount = 0;
+
+            
+
+           
+
             RecordCount = DB.Count;
+
+            mOrderList = new List<clsOrder>();  
 
             while (Index < RecordCount)
             {
@@ -51,7 +91,7 @@ namespace ClassLibrary
             }
         
         }
-        public clsOrder ThisOrder { get; set; }
+        
         public int Count {
             get
             {
@@ -62,6 +102,42 @@ namespace ClassLibrary
             {
                 
             }
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@orderID", mThisOrder.orderID);
+            DB.AddParameter("@isDelivered", mThisOrder.isDelivered);
+            DB.AddParameter("@orderNo", mThisOrder.orderNo);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID); 
+            DB.AddParameter("@DatePurchased", mThisOrder.DatePurchased);
+            DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
+
+            DB.Execute("sproc_tblOrder_Update");
+        }
+
+        
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@orderID", mThisOrder.orderID);
+
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void ReportByOrderNo(string orderNo)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@orderNo", orderNo);
+
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+
+            PopulateArray(DB);
         }
     }
 }
