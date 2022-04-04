@@ -17,12 +17,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             if (OrderID != -1)
             {
-                DisplayOrders();
+                DisplayOrder();
             }
         }
     }
 
-    void DisplayOrders()
+    void DisplayOrder()
     {
         clsOrderCollection Orders = new clsOrderCollection();
 
@@ -33,9 +33,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtOrderNo.Text = Orders.ThisOrder.orderNo;
         txtCustomerID.Text = Orders.ThisOrder.CustomerID.ToString();
         txtDatePurchased.Text = Orders.ThisOrder.DatePurchased.ToString();
-        lblTotalPrice.Text = Orders.ThisOrder.TotalPrice.ToString();
+        txtTotalPrice.Text = Orders.ThisOrder.TotalPrice.ToString();
          
     }
+
+
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -55,7 +57,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string orderNo = txtOrderNo.Text;
         string CustomerID = txtCustomerID.Text;
         string DatePurchased = "25/03/2022 00:00";
-        string TotalPrice = lblTotalPriceOutput.Text;
+        string TotalPrice = txtTotalPrice.Text;
         string error = "";
 
         error = AnOrder.Valid(orderNo, CustomerID, DatePurchased);
@@ -71,6 +73,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.CustomerID = Convert.ToInt32(CustomerID);
 
             AnOrder.DatePurchased = Convert.ToDateTime(DatePurchased);
+
+            AnOrder.TotalPrice = Convert.ToDouble(TotalPrice);
 
             
 
@@ -121,7 +125,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 txtOrderNo.Text = AnOrder.orderNo;
                 txtCustomerID.Text = AnOrder.CustomerID.ToString();
                 txtDatePurchased.Text = AnOrder.DatePurchased.ToString();
-                lblTotalPrice.Text = AnOrder.TotalPrice.ToString();
+                txtTotalPrice.Text = AnOrder.TotalPrice.ToString();
             }
         }
 

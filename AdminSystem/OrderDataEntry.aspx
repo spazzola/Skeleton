@@ -32,8 +32,8 @@
             <br />
             <br />
             <asp:Label ID="lblTotalPrice" runat="server" Text="Total Price" width="160px"></asp:Label>
-&nbsp;<asp:Label ID="lblTotalPriceOutput" runat="server" Text="lblTotalPriceOutput"></asp:Label>
-            <br />
+            <asp:TextBox ID="txtTotalPrice" runat="server" style="margin-bottom: 0px"></asp:TextBox>
+&nbsp;<br />
             <br />
             <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
             <br />
