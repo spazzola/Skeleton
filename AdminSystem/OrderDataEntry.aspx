@@ -28,7 +28,7 @@
             <br />
             <br />
             <asp:Label ID="lblDatePurchased" runat="server" Text="Date Purchased" width="160px"></asp:Label>
-            <asp:TextBox ID="txtDatePurchased" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDatePurchased" runat="server" OnTextChanged="txtDatePurchased_TextChanged"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblTotalPrice" runat="server" Text="Total Price" width="160px"></asp:Label>
@@ -40,7 +40,7 @@
             <br />
             <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel"  />
             <br />
             
         

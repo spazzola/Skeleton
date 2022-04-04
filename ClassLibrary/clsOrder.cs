@@ -155,10 +155,7 @@ namespace ClassLibrary
             try
             {
                 DateTemp = Convert.ToDateTime(DatePurchased);
-                if (DateTemp < DateTime.Now.Date)
-                {
-                    Error += "The date cannot be in the past";
-                }
+                
 
                 if (DateTemp > DateTime.Now.Date)
                 {

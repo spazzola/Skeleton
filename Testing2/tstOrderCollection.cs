@@ -89,5 +89,159 @@ namespace Testing2
 
         }
 
+        [TestMethod]
+
+        public void AddMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            clsOrder TestItem = new clsOrder();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.orderID = 1;
+            TestItem.isDelivered = true;
+            TestItem.orderNo = "1abc2def34";
+            TestItem.CustomerID = 1;
+            TestItem.DatePurchased = DateTime.Now.Date;
+            TestItem.TotalPrice = 24.00;
+
+            AllOrders.ThisOrder = TestItem;
+
+            PrimaryKey = AllOrders.Add();
+
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+
+
+
+        }
+
+        [TestMethod]
+
+        public void UpdateMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            clsOrder TestItem = new clsOrder();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.isDelivered = true;
+            TestItem.orderNo = "1abc2def34";
+            TestItem.CustomerID = 1;
+            TestItem.DatePurchased = Convert.ToDateTime("25/03/2020 00:00");
+            TestItem.TotalPrice = 24.00;
+
+            AllOrders.ThisOrder = TestItem;
+
+            PrimaryKey = AllOrders.Add();
+
+            TestItem.orderID = PrimaryKey;
+
+            TestItem.isDelivered = false;
+            TestItem.orderNo = "5abc6def78";
+            TestItem.CustomerID = 1;
+            TestItem.DatePurchased = Convert.ToDateTime("25/03/2020 00:00");
+            TestItem.TotalPrice = 30.00;
+
+            AllOrders.ThisOrder = TestItem;
+
+            AllOrders.Update();
+
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+
+        }
+
+        [TestMethod]
+
+        public void DeleteMethodOK()
+        {
+
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            clsOrder TestItem = new clsOrder();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.isDelivered = true;
+            TestItem.orderNo = "1ab2559";
+            TestItem.CustomerID = 1;
+            TestItem.DatePurchased = Convert.ToDateTime("25/03/2020 00:00");
+            TestItem.TotalPrice = 25.00;
+
+            AllOrders.ThisOrder = TestItem;
+
+            PrimaryKey = AllOrders.Add();
+
+            TestItem.orderID = PrimaryKey;
+
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            AllOrders.Delete();
+
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+
+            Assert.IsFalse(Found);
+        }
+
+
+        [TestMethod]
+
+        public void ReportByOrderNoMethodOK()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            FilteredOrders.ReportByOrderNo("");
+
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+
+        public void ReportByOrderNoNotFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            FilteredOrders.ReportByOrderNo("yyyyyyy");
+
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+
+        public void ReportByOrderNoTestDataFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+
+            Boolean OK = true;
+
+            FilteredOrders.ReportByOrderNo("xxxxxxx");
+
+            if (FilteredOrders.Count == 2)
+            {
+                if (FilteredOrders.orderList[0].orderID != 40)
+                {
+                    OK = false;
+                }
+                if (FilteredOrders.orderList[1].orderID != 41)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
