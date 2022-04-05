@@ -80,13 +80,27 @@ namespace ClassLibrary
 
         public bool Find(int id)
         {
-            testId = 3401;
-            testDate = new DateTime(2041, 3, 1, 7, 0, 0);
-            testName = "Shpaximirr Maxan";
-            testMail = "shpaximir@mail.com";
-            testPass = "asdfgh12";
-            maybe = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@id", id);
+
+            DB.Execute("sproc_tblCustomer_FilterById");
+
+            if(DB.Count == 1)
+            {
+                testId = Convert.ToInt32(DB.DataTable.Rows[0]["id"]);
+                testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateAdded"]);
+                testName = Convert.ToString(DB.DataTable.Rows[0]["name"]);
+                testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
+                testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
+                maybe = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string GetUserData()
