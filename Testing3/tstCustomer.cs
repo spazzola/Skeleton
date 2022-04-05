@@ -51,7 +51,7 @@ namespace Testing3
             //Create an instance of customer
             clsCustomer acc = new clsCustomer();
             //Test it
-            String tstMail = "cnorix22@zmail.org";
+            String tstMail = "n0rix@mail.com";
             acc.email = tstMail;
             Assert.AreEqual(acc.email, tstMail);
         }
