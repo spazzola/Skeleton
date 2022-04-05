@@ -98,7 +98,7 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataSource = Orders.orderList;
 
         lstOrderList.DataValueField = "OrderID";
-        lstOrderList.DataValueField = "OrderNo";
+        lstOrderList.DataTextField = "OrderNo";
 
         lstOrderList.DataBind();
     }

@@ -52,7 +52,7 @@ namespace ClassLibrary
         {
             Int32 Index = 0;
 
-            Int32 RecordCount = 0;
+            Int32 RecordCount;
 
             
 
