@@ -53,7 +53,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
         Boolean isDelivered = cbIsDelivered.Checked;
-        string orderID = txtOrderID.Text;
+        Int32 orderID = Convert.ToInt32(txtOrderID.Text);
         string orderNo = txtOrderNo.Text;
         string CustomerID = txtCustomerID.Text;
         string DatePurchased = "25/03/2022 00:00";
@@ -64,7 +64,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if (error == "")
         {
-            AnOrder.orderID = Convert.ToInt32(orderID);
+            AnOrder.orderID = orderID;
 
             AnOrder.isDelivered = isDelivered;
 
