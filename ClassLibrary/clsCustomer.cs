@@ -80,25 +80,29 @@ namespace ClassLibrary
 
         public bool Find(int id)
         {
+            // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-
+            // Add the id as parameter to the DB
             DB.AddParameter("@id", id);
-
+            // Execute the procedure
             DB.Execute("sproc_tblCustomer_FilterById");
-
+            // Check if DB has at least 1 row
             if(DB.Count == 1)
             {
+                // Copy the data from the database to the private data members
                 testId = Convert.ToInt32(DB.DataTable.Rows[0]["id"]);
                 testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateAdded"]);
                 testName = Convert.ToString(DB.DataTable.Rows[0]["name"]);
                 testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
                 testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
                 maybe = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
-
+                //return that everything works fine
                 return true;
             }
+            // if no record was found
             else
             {
+                //return false indicating a problem
                 return false;
             }
         }
