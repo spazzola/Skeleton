@@ -9,14 +9,13 @@
 <body style="height: 382px">
     <form id="form1" runat="server">
         <div>
-        </div>
-        <asp:Label ID="lblDate" runat="server" Text="date added"></asp:Label>
-        <asp:TextBox ID="dateTxtBox" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
-        <p>
             <asp:Label ID="lblID" runat="server" Text="id" width="68px"></asp:Label>
             <asp:TextBox ID="idTxtBox" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" Text="Find" />
-        </p>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+        </div>
+        <br />
+        <asp:Label ID="lblDate" runat="server" Text="date added"></asp:Label>
+        <asp:TextBox ID="dateTxtBox" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
         <p>
             <asp:Label ID="lblName" runat="server" Text="name" width="68px"></asp:Label>
             <asp:TextBox ID="nameTxtBox" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>

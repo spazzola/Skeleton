@@ -69,4 +69,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsCustomer customer = new clsCustomer();
+        Int32 id;
+        Boolean found = false;
+        id = Convert.ToInt32(idTxtBox.Text);
+        found = customer.Find(id);
+
+        if (found == true)
+        {
+            idTxtBox.Text = customer.id.ToString();
+            dateTxtBox.Text = customer.dateAdded.ToString();
+            nameTxtBox.Text = customer.name;
+            mailTxtBox.Text = customer.email;
+            passTxtBox.Text = customer.pass;
+        }
+    }
 }
