@@ -15,6 +15,7 @@
         <p>
             <asp:Label ID="lblID" runat="server" Text="id" width="68px"></asp:Label>
             <asp:TextBox ID="idTxtBox" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Text="Find" />
         </p>
         <p>
             <asp:Label ID="lblName" runat="server" Text="name" width="68px"></asp:Label>
@@ -28,6 +29,9 @@
         </p>
         <p>
             <asp:CheckBox ID="checkExist" runat="server" Text="Account Exists" OnCheckedChanged="checkExist_CheckedChanged" />
+        </p>
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         </p>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="Button1_Click" Text="OK" />
