@@ -91,7 +91,7 @@ namespace ClassLibrary
             {
                 // Copy the data from the database to the private data members
                 testId = Convert.ToInt32(DB.DataTable.Rows[0]["id"]);
-                testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateAdded"]);
+                testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateCreated"]);
                 testName = Convert.ToString(DB.DataTable.Rows[0]["name"]);
                 testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
                 testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
