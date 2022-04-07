@@ -206,5 +206,15 @@ namespace Testing3
 
             Assert.AreEqual(error, "");
         }
+
+        [TestMethod]
+        public void CheckNameLenLess20()
+        {
+            clsCustomer customer = new clsCustomer();
+            string error = "";
+            string n = "";
+            error = customer.Validate(dateCreated, email, pass, n);
+            Assert.AreNotEqual(error, "");
+        }
     }
 }

@@ -111,7 +111,10 @@ namespace ClassLibrary
             string email, string pass, string name)
         {
             string error = "";
-
+            if(name.Length == 0)
+            {
+                error += "Name may not be blank";
+            }
             return error;
         }
 
