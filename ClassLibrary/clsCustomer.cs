@@ -131,6 +131,7 @@ namespace ClassLibrary
             {
                 error = "Date can't be in the future\n";
             }
+
             return error;
         }
 
