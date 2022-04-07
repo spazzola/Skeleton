@@ -406,7 +406,6 @@ namespace Testing3
             string tstDate = "Not a date";
             error = customer.Validate(tstDate, email, pass, name);
             Assert.AreNotEqual(error, "");
-
         }
     }
 }

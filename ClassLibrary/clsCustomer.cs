@@ -121,15 +121,22 @@ namespace ClassLibrary
                 error += "Name length should be less than 20(including spaces)\n";
             }
 
-            testDate = Convert.ToDateTime(dateAdded);
-            if (testDate < DateTime.Now.Date)
+            try
             {
-                error += "Date can't be in the past\n";
-            }
+                testDate = Convert.ToDateTime(dateAdded);
+                if (testDate < DateTime.Now.Date)
+                {
+                    error += "Date can't be in the past\n";
+                }
 
-            if(testDate > DateTime.Now.Date)
+                if (testDate > DateTime.Now.Date)
+                {
+                    error = "Date can't be in the future\n";
+                }
+            }
+            catch
             {
-                error = "Date can't be in the future\n";
+                error += "The date provided was not a valid date.\n";
             }
 
             return error;
