@@ -290,6 +290,7 @@ namespace Testing3
             Assert.AreEqual(error, "");
         }
 
+        [TestMethod]
         public void NameLenMaxPlusOne()
         {
             clsCustomer customer = new clsCustomer();
