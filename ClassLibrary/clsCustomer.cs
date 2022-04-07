@@ -116,7 +116,7 @@ namespace ClassLibrary
                 error += "Name may not be blank";
             }
 
-            if(name.Length > 20)
+            if(name.Length > 21)
             {
                 error += "Name length should be less than 20(including spaces)";
             }
