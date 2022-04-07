@@ -216,5 +216,79 @@ namespace Testing3
             error = customer.Validate(dateCreated, email, pass, n);
             Assert.AreNotEqual(error, "");
         }
+
+        public void NameLenMin()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create some test data to pass to the method
+            string n = "a"; //this should be ok
+            //invoke the method
+            error = customer.Validate(dateCreated, email, pass, n);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void NameLenMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create some test data to pass to the method
+            string n = "aa"; //this should be ok
+            //invoke the method
+            error = customer.Validate(dateCreated, email, pass, n);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void NameNoLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create some test data to pass to the method
+            string n = "aaaaa"; //this should be ok
+            //invoke the method
+            error = customer.Validate(dateCreated, email, pass, n);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+        [TestMethod]
+        public void NameLenMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create some test data to pass to the method
+            string n = "aaaaaa"; //this should be ok
+            //invoke the method
+            error = customer.Validate(dateCreated, email, pass, n);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void NameLenNoMid()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create some test data to pass to the method
+            string n = "aaa"; //this should be ok
+            //invoke the method
+            error = customer.Validate(dateCreated, email, pass, n);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
     }
 }
