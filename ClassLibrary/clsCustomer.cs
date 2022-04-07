@@ -107,6 +107,14 @@ namespace ClassLibrary
             }
         }
 
+        public string Validate(string dateCreated,
+            string email, string pass, string name)
+        {
+            string error = "";
+
+            return error;
+        }
+
         public string GetUserData()
         {
             string data = this.dateAdded.ToString() + "\n" 

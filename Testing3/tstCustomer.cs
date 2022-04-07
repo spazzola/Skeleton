@@ -188,5 +188,17 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(customer.exists, testExist);
         }
+
+        [TestMethod]
+        public void testValidate()
+        {
+            clsCustomer customer = new clsCustomer();
+
+            String error = "";
+
+            error = customer.Validate(dateAdded, email, pass, name);
+
+            Assert.AreEqual(error, "")
+        }
     }
 }
