@@ -290,5 +290,13 @@ namespace Testing3
             Assert.AreEqual(error, "");
         }
 
+        public void NameLenMaxPlusOne()
+        {
+            clsCustomer customer = new clsCustomer();
+            string error = "";
+            string n = "Shpaximir Shpaxanders";
+            error = customer.Validate(dateCreated, email, pass, n);
+            Assert.AreEqual(error, "");
+        }
     }
 }
