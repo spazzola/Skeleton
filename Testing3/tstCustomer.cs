@@ -398,6 +398,15 @@ namespace Testing3
             Assert.AreNotEqual(error, "");
         }
 
+        [TestMethod]
+        public void InvalidDateAdded()
+        {
+            clsCustomer customer = new clsCustomer();
+            string error = "";
+            string tstDate = "Not a date";
+            error = customer.Validate(tstDate, email, pass, name);
+            Assert.AreNotEqual(error, "");
 
+        }
     }
 }
