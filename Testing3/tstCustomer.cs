@@ -7,6 +7,12 @@ namespace Testing3
     [TestClass]
     public class tstCustomer
     {
+
+        string dateCreated = DateTime.Now.Date.ToString();
+        string email = "n0rix@mail.com";
+        string pass = "asdfgh12";
+        string name = "Chuck Norix";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -196,9 +202,9 @@ namespace Testing3
 
             String error = "";
 
-            error = customer.Validate(dateAdded, email, pass, name);
+            error = customer.Validate(dateCreated, email, pass, name);
 
-            Assert.AreEqual(error, "")
+            Assert.AreEqual(error, "");
         }
     }
 }
