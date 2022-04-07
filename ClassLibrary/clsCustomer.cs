@@ -107,6 +107,17 @@ namespace ClassLibrary
             }
         }
 
+        public string Validate(string dateCreated,
+            string email, string pass, string name)
+        {
+            string error = "";
+            if(name.Length == 0)
+            {
+                error += "Name may not be blank";
+            }
+            return error;
+        }
+
         public string GetUserData()
         {
             string data = this.dateAdded.ToString() + "\n" 

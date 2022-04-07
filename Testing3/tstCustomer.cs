@@ -7,6 +7,12 @@ namespace Testing3
     [TestClass]
     public class tstCustomer
     {
+
+        string dateCreated = DateTime.Now.Date.ToString();
+        string email = "n0rix@mail.com";
+        string pass = "asdfgh12";
+        string name = "Chuck Norix";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -187,6 +193,28 @@ namespace Testing3
             customer.exists = testExist;
             //test to see that the two values are the same
             Assert.AreEqual(customer.exists, testExist);
+        }
+
+        [TestMethod]
+        public void testValidate()
+        {
+            clsCustomer customer = new clsCustomer();
+
+            String error = "";
+
+            error = customer.Validate(dateCreated, email, pass, name);
+
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void CheckNameLenLess20()
+        {
+            clsCustomer customer = new clsCustomer();
+            string error = "";
+            string n = "";
+            error = customer.Validate(dateCreated, email, pass, n);
+            Assert.AreNotEqual(error, "");
         }
     }
 }
