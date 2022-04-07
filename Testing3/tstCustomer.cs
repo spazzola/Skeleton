@@ -295,9 +295,108 @@ namespace Testing3
         {
             clsCustomer customer = new clsCustomer();
             string error = "";
-            string n = "Shpaximir Shpaxanders";
+            string n = "Shpaximir Shpaxanderss";
             error = customer.Validate(dateCreated, email, pass, n);
             Assert.AreEqual(error, "");
         }
+
+        [TestMethod]
+        public void DateAddedMinus100Y()
+        {
+            clsCustomer customer = new clsCustomer();
+            string error = "";
+            // Create the test DateTime var
+            DateTime tstDate = DateTime.Now.Date;
+            // Add -100 years to the tstDate value (by adding -100 years we remove 100 years from the set date)
+            tstDate.AddYears(-100);
+            // Create a str variable to store the tstDate value as string
+            string strDate = tstDate.ToString();
+
+            error = customer.Validate(strDate, email, pass, name);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinus1Day()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create a variable to store the test date data
+            DateTime tstDate;
+            //set the date totodays date
+            tstDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            tstDate = tstDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string strDate = tstDate.ToString();
+            //invoke the method
+            error = customer.Validate(strDate, email, pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void CurrentDateAddedTest()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create a variable to store the test date data
+            DateTime tstDate;
+            //set the date totodays date
+            tstDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string strDate = tstDate.ToString();
+            //invoke the method
+            error = customer.Validate(strDate, email, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedPlus1Day()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create a variable to store the test date data
+            DateTime tstDate;
+            //set the date totodays date
+            tstDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            tstDate = tstDate.AddDays(1);
+            //convert the date variable to a string variable
+            string strDate = tstDate.ToString();
+            //invoke the method
+            error = customer.Validate(strDate, email, pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //create a variable to store the test date data
+            DateTime tstDate;
+            //set the date totodays date
+            tstDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 100 years
+            tstDate = tstDate.AddYears(100);
+            //convert the date variable to a string variable
+            string strDate = tstDate.ToString();
+            //invoke the method
+            error = customer.Validate(strDate, email ,pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(error, "");
+        }
+
     }
 }
