@@ -407,5 +407,171 @@ namespace Testing3
             error = customer.Validate(tstDate, email, pass, name);
             Assert.AreNotEqual(error, "");
         }
+
+        [TestMethod]
+        public void EmptyMailData()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should fail
+            string tstMail = "";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void OneCharMailData()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "a";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void TwoCharMailTest()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "aa";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void MailLenLessThanMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "m1@mail.com";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void MaxMailLen()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "shpaxandroxx@mail.com";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void MailMaxLenPlus1()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string tstMail = "shpaxandroxx@mail.com";
+            //invoke the method
+            Error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OneCharPassData()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstPass = "a";
+            //invoke the method
+            error = customer.Validate(dateCreated, email, tstPass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void TwoCharPassTest()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstPass = "aa";
+            //invoke the method
+            error = customer.Validate(dateCreated, email, tstPass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void PassLenLessThanMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "password";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void MaxPassLen()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String error = "";
+            //this should pass
+            string tstMail = "aasdfghjkl1234567890";
+            //invoke the method
+            error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void PassMaxLenPlus1()
+        {
+            //create an instance of the class we want to create
+            clsCustomer customer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string tstMail = "aaasdfghjkl1234567890";
+            //invoke the method
+            Error = customer.Validate(dateCreated, tstMail, pass, name);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
     }
 }
