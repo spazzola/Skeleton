@@ -163,15 +163,15 @@ namespace ClassLibrary
 
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@SupplierId", SupplierId);
+            DB.AddParameter("Id", SupplierId);
 
-            DB.Execute("Sproc_tblSupplier_FilterBySupplierId");
+            DB.Execute("dbo.Sproc_tblSupplier_FilterById");
 
             if (DB.Count == 1)
 
             {
 
-                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
 
                 mName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
 
