@@ -50,7 +50,7 @@ namespace Testing6
 
             clsSupplier Supplier = new clsSupplier();
 
-            string TestData = "Harry";
+            string TestData = "EddieStobart";
 
             Supplier.Name = TestData;
 
@@ -66,7 +66,7 @@ namespace Testing6
 
             clsSupplier Supplier = new clsSupplier();
 
-            String TestData = "Harry@gmail.com";
+            String TestData = "EddieStobart@gmail.com";
 
             Supplier.Email = TestData;
 
@@ -114,7 +114,7 @@ namespace Testing6
 
             clsSupplier Supplier = new clsSupplier();
 
-            String TestData = "Shirts";
+            String TestData = "NikeTrackSuits";
 
             Supplier.ProductDescription = TestData;
 
@@ -142,19 +142,18 @@ namespace Testing6
 
         [TestMethod]
 
-        public void TestSupplierIdFound()
+        public void TestIdFound()
 
         {
-
-            clsSupplier Supplier = new clsSupplier();
+ clsSupplier Supplier = new clsSupplier();
 
             Boolean Found = false;
 
             Boolean Ok = true;
 
-            int SupplierId = 1;
+            int Id = 1;
 
-            Found = Supplier.Find(SupplierId);
+            Found = Supplier.Find(Id);
 
             if (Supplier.SupplierId != 1)
 
@@ -184,7 +183,7 @@ namespace Testing6
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.Name != "Harry")
+            if (Supplier.Name != "EddieStobart")
 
             {
 
@@ -212,7 +211,7 @@ namespace Testing6
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.Email != "Harry@gmail.com")
+            if (Supplier.Email != "EddieStobart@gmail.com")
 
             {
 
@@ -240,7 +239,7 @@ namespace Testing6
 
             Found = Supplier.Find(SupplierId);
 
-            if (Supplier.ProductDescription != "Shirt")
+            if (Supplier.ProductDescription != "NikeTrackSuits")
 
             {
 
