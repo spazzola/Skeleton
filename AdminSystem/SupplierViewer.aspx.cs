@@ -18,6 +18,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(Supplier.Availability);
         Response.Write(Supplier.Quantity);
         Response.Write(Supplier.ProductDescription);
+        Response.Write(Supplier.DateAvailable);
         
     }
 }
