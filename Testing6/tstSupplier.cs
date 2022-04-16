@@ -13,6 +13,12 @@ namespace Testing6
     public class tstSupplier
 
     {
+        string Name = "EddieStobart";
+        string Email = "EddieStobart@gmail.com";
+        string Availability = "bit";
+        string Quantity = "1";
+        string ProductDescription = "NikeTrackSuits";
+        string DateAvailable = DateTime.Now.Date.ToString();
 
         [TestMethod]
 
@@ -39,8 +45,8 @@ namespace Testing6
             Supplier.SupplierId = TestData;
 
             Assert.AreEqual(Supplier.SupplierId, TestData);
-
         }
+
 
         [TestMethod]
 
@@ -121,11 +127,16 @@ namespace Testing6
             Assert.AreEqual(Supplier.ProductDescription, TestData);
 
         }
-
         [TestMethod]
-    
+        public void DateAvailablePropertyOK()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            DateTime TestData = DateTime.Now.Date;
+            Supplier.DateAvailable = TestData;
+            Assert.AreEqual(Supplier.DateAvailable, TestData);
+        }
+        [TestMethod]
         public void FindMethodOk()
-
         {
 
             clsSupplier Supplier = new clsSupplier();
@@ -145,7 +156,7 @@ namespace Testing6
         public void TestIdFound()
 
         {
- clsSupplier Supplier = new clsSupplier();
+            clsSupplier Supplier = new clsSupplier();
 
             Boolean Found = false;
 
@@ -304,9 +315,381 @@ namespace Testing6
             }
 
             Assert.IsTrue(OK);
-
+        }
+        [TestMethod]
+        public void TestDateAvailableFound()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            Boolean Found = false;
+            Boolean OK = true;
+            int SupplierId = 1;
+            Found = Supplier.Find(SupplierId);
+            if (Supplier.DateAvailable != Convert.ToDateTime("08/07/2022"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
-    }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            string Error = "";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
 
+        }
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "a";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMinPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "aa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void NameMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void NameMid()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void NameExtremeMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Name = "";
+            Name = Name.PadRight(500, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+        [TestMethod]
+        public void DateAvailableExtremeMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateAvailable = TestDate.ToString();
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAvailableMinLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateAvailable = TestDate.ToString();
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAvailableMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateAvailable = TestDate.ToString();
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAvailableMinPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateAvailable = TestDate.ToString();
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAvailableExtremeMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateAvailable = TestDate.ToString();
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateAvailableInvalidData()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string DateAvailable = "This is not a date!";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void ProductDescriptionMinLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductDescriptionMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "a";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductDescriptionMinPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "aa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductDescriptionMaxLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "";
+            ProductDescription = ProductDescription.PadRight(49, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void ProductDescriptionMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ProductDescriptionMid()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "";
+            ProductDescription = ProductDescription.PadRight(25, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void ProductDescriptionExtremeMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "";
+            ProductDescription = ProductDescription.PadRight(500, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityExtremeMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Quantity = "";
+            Quantity = "-2000";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityMinLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            String Quantity = "";
+            Quantity = "-1";
+            //invoke the method
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            String Quantity = "";
+            Quantity = "1";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void QuantityMinPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Quantity = "2";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void QuantityExtremeMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Quantity = "";
+            Quantity = "2000,0000";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void QuantityInvalidData()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Quantity = "This is not a valid quantity!";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+
+
+
+
+        }
+        [TestMethod]
+        public void EmailMinLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void EmailMin()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "a";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void EmailMinPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "aa";
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void EmailMaxLessOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "";
+            Email = Email.PadRight(29,'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void EmailMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Email = Email.PadRight(30, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void EmailMid()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "";
+            Email = Email.PadRight(15, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void EmailExtremeMax()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string Email = "";
+            Email = Email.PadRight(500, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+
+        }
+    }
 }
+
+    
