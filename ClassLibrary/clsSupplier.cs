@@ -216,7 +216,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string name, string email, string productDescription, string availability, string quantity, string dateAvailable)
+        public string Valid(string name, string email, string productDescription, string quantity, string dateAvailable)
         {
             String Error = "";
             DateTime DateTemp;

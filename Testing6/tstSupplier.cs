@@ -15,9 +15,8 @@ namespace Testing6
     {
         string Name = "EddieStobart";
         string Email = "EddieStobart@gmail.com";
-        string Availability = "bit";
-        string Quantity = "1";
         string ProductDescription = "NikeTrackSuits";
+        string Quantity = "1";
         string DateAvailable = DateTime.Now.Date.ToString();
 
         [TestMethod]
@@ -153,7 +152,7 @@ namespace Testing6
 
         [TestMethod]
 
-        public void TestIdFound()
+        public void TestSupplierIdFound()
 
         {
             clsSupplier Supplier = new clsSupplier();
@@ -162,9 +161,9 @@ namespace Testing6
 
             Boolean Ok = true;
 
-            int Id = 1;
+            int SupplierId = 1;
 
-            Found = Supplier.Find(Id);
+            Found = Supplier.Find(SupplierId);
 
             if (Supplier.SupplierId != 1)
 
@@ -336,7 +335,7 @@ namespace Testing6
         {
             clsSupplier Supplier = new clsSupplier();
             string Error = "";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
 
         }
         [TestMethod]
@@ -345,7 +344,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -354,7 +353,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "a";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -363,7 +362,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "aa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -372,7 +371,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
 
         }
@@ -382,7 +381,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -391,7 +390,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Name = "aaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
 
         }
@@ -402,7 +401,7 @@ namespace Testing6
             String Error = "";
             string Name = "";
             Name = Name.PadRight(500, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -419,7 +418,7 @@ namespace Testing6
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateAvailable = TestDate.ToString();
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -432,7 +431,7 @@ namespace Testing6
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
             string DateAvailable = TestDate.ToString();
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -444,7 +443,7 @@ namespace Testing6
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateAvailable = TestDate.ToString();
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -456,7 +455,7 @@ namespace Testing6
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
             string DateAvailable = TestDate.ToString();
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -469,7 +468,7 @@ namespace Testing6
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateAvailable = TestDate.ToString();
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -478,7 +477,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string DateAvailable = "This is not a date!";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
 
         }
@@ -488,7 +487,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string ProductDescription = "";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -497,7 +496,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string ProductDescription = "a";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -506,7 +505,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string ProductDescription = "aa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -516,8 +515,20 @@ namespace Testing6
             String Error = "";
             string ProductDescription = "";
             ProductDescription = ProductDescription.PadRight(49, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionMaxPlusOne()
+        {
+            clsSupplier Supplier = new clsSupplier();
+            String Error = "";
+            string ProductDescription = "";
+            ProductDescription = ProductDescription.PadRight(51, 'a');
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
+            Assert.AreNotEqual(Error, "");
+
 
         }
         [TestMethod]
@@ -526,7 +537,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string ProductDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -536,7 +547,7 @@ namespace Testing6
             String Error = "";
             string ProductDescription = "";
             ProductDescription = ProductDescription.PadRight(25, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
 
         }
@@ -547,7 +558,7 @@ namespace Testing6
             String Error = "";
             string ProductDescription = "";
             ProductDescription = ProductDescription.PadRight(500, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -558,7 +569,7 @@ namespace Testing6
             String Error = "";
             string Quantity = "";
             Quantity = "-2000";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -570,7 +581,7 @@ namespace Testing6
             String Quantity = "";
             Quantity = "-1";
             //invoke the method
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -583,7 +594,7 @@ namespace Testing6
             String Error = "";
             String Quantity = "";
             Quantity = "1";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -592,7 +603,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Quantity = "2";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription,  Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
 
@@ -603,7 +614,7 @@ namespace Testing6
             String Error = "";
             string Quantity = "";
             Quantity = "2000,0000";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -612,7 +623,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Quantity = "This is not a valid quantity!";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
 
 
@@ -625,7 +636,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Email = "";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -634,7 +645,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Email = "a";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -643,7 +654,7 @@ namespace Testing6
             clsSupplier Supplier = new clsSupplier();
             String Error = "";
             string Email = "aa";
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -653,7 +664,7 @@ namespace Testing6
             String Error = "";
             string Email = "";
             Email = Email.PadRight(29,'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
 
         }
@@ -664,7 +675,7 @@ namespace Testing6
             String Error = "";
             string Email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Email = Email.PadRight(30, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -674,7 +685,7 @@ namespace Testing6
             String Error = "";
             string Email = "";
             Email = Email.PadRight(15, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreEqual(Error, "");
 
         }
@@ -685,7 +696,7 @@ namespace Testing6
             String Error = "";
             string Email = "";
             Email = Email.PadRight(500, 'a');
-            Error = Supplier.Valid(Name, Email, ProductDescription, Availability, Quantity, DateAvailable);
+            Error = Supplier.Valid(Name, Email, ProductDescription, Quantity, DateAvailable);
             Assert.AreNotEqual(Error, "");
 
         }
