@@ -6,51 +6,59 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            text-align: left;
+        .auto-style2 {
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        }
+        #form1 {
+            height: 430px;
+            width: 325px;
+        }
+        .auto-style3 {
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         }
     </style>
 </head>
-<body style="height: 423px; width: 1485px">
+<body style="height: 935px; width: 1485px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" height="25px" style="background-color: #3399FF" width="70px" />
         </div>
-        <p class="auto-style1">
-            <asp:Label ID="lblSupplier" runat="server" Text="SupplierId"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtId" runat="server" height="35px" style="z-index: 2; left: 409px; top: 80px; position: absolute; margin-left: 13px; margin-top: 0px" width="308px"></asp:TextBox>
-        </p>
-        <asp:Label ID="Label1" runat="server" Text="Name" width="105px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtName" runat="server" height="35px" style="z-index: 2; left: 382px; top: 182px; position: absolute; margin-left: 43px; margin-top: 0px" width="308px"></asp:TextBox>
-        <p class="auto-style1">
-            <asp:Label runat="server" Text="Email" width="105px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtEmail" runat="server" height="35px" style="z-index: 2; left: 357px; top: 254px; position: absolute; margin-left: 71px; margin-top: 0px" width="308px"></asp:TextBox>
-&nbsp;&nbsp;
-        </p>
-        <p class="auto-style1">
-            <asp:Label ID="Label2" runat="server" Text="ProductDescription" width="105px"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtProductDescription" runat="server" style="z-index: 2; left: 352px; top: 310px; position: absolute; margin-left: 70px; margin-top: 0px; height: 35px; width: 308px; margin-bottom: 26px;"></asp:TextBox>
-        </p>
-        <p class="auto-style1" style="width: 105px; height: 31px">
-            Quantity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtQuantity" runat="server" height="35px" style="z-index: 2; left: 208px; top: 396px; position: absolute; margin-left: 214px; margin-top: 0px" width="308px"></asp:TextBox>
-        </p>
-        <br />
-        <asp:Label ID="Label3" runat="server" Text="DateAvailable"></asp:Label>
-        <asp:TextBox ID="txtDateAvailable" runat="server" height="41px" style="z-index: 1; margin-left: 396px; margin-top: 0px" width="230px"></asp:TextBox>
-        <p id="Availability">
-            <asp:CheckBox ID="chkAvailability" runat="server" Text="Availability" width="105px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
-        <asp:Label ID="lblError" runat="server" Text="Label" width="105px"></asp:Label>
-            <asp:Button ID="btnCancel" runat="server" Height="74px" style="margin-left: 222px; margin-top: 59px" Text="Cancel" width="217px" />
-            <asp:Button ID="btnOk" runat="server" Height="66px" OnClick="btnOk_Click" style="margin-left: 448px" Text="Ok" Width="172px" />
         <p>
-            &nbsp;</p>
+            <asp:Label ID="lblSupplierId" runat="server" Text="SupplierId" height="16px" width="100px" CssClass="auto-style3" style=""></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtSupplierId" runat="server" height="22px" width="144px"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblName" runat="server" Text="Name" width="125px" height="16px" CssClass="auto-style3" style=""></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtName" runat="server" height="22px" width="144px"></asp:TextBox>
+        <p>
+            <asp:Label runat="server" Text="Email" width="125px" height="16px" ID="lblEmail" CssClass="auto-style3" style=""></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtEmail" runat="server" height="16px" width="136px"></asp:TextBox>
+            <asp:TextBox ID="txtProductDescription" runat="server" style="z-index: 2; left: 95px; top: 195px; position: absolute; margin-left: 70px; margin-top: 0px; height: 22px; width: 144px; margin-bottom: 26px;"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblProductDescription" runat="server" Text="ProductDescription" width="125px" Height="16px" CssClass="auto-style3" style=""></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="lblQuantity" runat="server" height="16px" Text="Quantity" width="125px" CssClass="auto-style3" style=""></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtQuantity" runat="server" style="z-index: 1; left: 165px; top: 255px; position: absolute; height: 22px;" width="144px"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblDateAvailable" runat="server" Text="DateAvailable" height="16px" width="125px" CssClass="auto-style3" style=""></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p id="Availability">
+            <asp:CheckBox ID="chkAvailability" runat="server" Text="Availability" width="125px" height="16px" CssClass="auto-style3" style="" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtDateAvailable" runat="server" style="z-index: 1; left: 160px; top: 295px; position: absolute; height: 22px;" width="144px"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click" height="24px" width="50px" />
+&nbsp;
+&nbsp;<asp:Button ID="btnCancel" runat="server" Height="26px" Text="Cancel" Width="48px" />
+        </p>
+        <asp:Label ID="lblError" runat="server" width="125px" CssClass="auto-style2" height="16px"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <p>
             &nbsp;</p>
     </form>
