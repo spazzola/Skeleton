@@ -113,12 +113,12 @@ namespace ClassLibrary
             string error = "";
             if(name.Length == 0)
             {
-                error += "Name may not be blank\n";
+                error = "Name may not be blank\n";
             }
 
             if(name.Length >= 20)
             {
-                error += "Name length should be less than 20(including spaces)\n";
+                error = "Name length should be less than 20(including spaces)\n";
             }
 
             try
@@ -126,7 +126,7 @@ namespace ClassLibrary
                 testDate = Convert.ToDateTime(dateAdded);
                 if (testDate < DateTime.Now.Date)
                 {
-                    error += "Date can't be in the past\n";
+                    error = "Date can't be in the past\n";
                 }
 
                 if (testDate > DateTime.Now.Date)
@@ -136,7 +136,7 @@ namespace ClassLibrary
             }
             catch
             {
-                error += "The date provided was not a valid date.\n";
+                error = "The date provided was not a valid date.\n";
             }
 
             return error;
