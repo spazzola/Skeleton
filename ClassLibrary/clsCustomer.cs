@@ -66,15 +66,15 @@ namespace ClassLibrary
             }
                 }
 
-        public bool maybe;
+        public bool exist;
         public bool exists { 
             get
             {
-                return maybe;
+                return exist;
             }
             set
             {
-                maybe = value;
+                exist = value;
             } 
         }
 
@@ -95,7 +95,7 @@ namespace ClassLibrary
                 testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
                 testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
                 testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateCreated"]);
-                maybe = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
+                exist = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
                 //return that everything works fine
                 return true;
             }
