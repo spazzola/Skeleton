@@ -36,8 +36,8 @@ namespace Testing3
             clsCustomer acc = new clsCustomer();
             //Test it
             String n = "Chuck Norix";
-            acc.name = n;
-            Assert.AreEqual(n, acc.name);
+            acc.Name = n;
+            Assert.AreEqual(n, acc.Name);
         }
 
         [TestMethod]
@@ -47,8 +47,8 @@ namespace Testing3
             clsCustomer acc = new clsCustomer();
             //Test it
             String tstPass = "asdfghjk12";
-            acc.pass = "asdfghjk12";
-            Assert.AreEqual(tstPass, acc.pass);
+            acc.passwrd = "asdfghjk12";
+            Assert.AreEqual(tstPass, acc.passwrd);
         }
 
         [TestMethod]
@@ -70,9 +70,9 @@ namespace Testing3
             // Sample data
             bool tstExist = true;
             // Just pass for now
-            acc.exists = tstExist;
+            acc.exist = tstExist;
             //Test it
-            Assert.IsTrue(acc.exists);
+            Assert.IsTrue(acc.exist);
         }
 
         [TestMethod]
@@ -151,9 +151,9 @@ namespace Testing3
             //create some test data to assign to the property
             string testName = "Shpaximirr Maxan";
             //assign the data to the property
-            customer.name = testName;
+            customer.Name = testName;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.name, testName);
+            Assert.AreEqual(customer.Name, testName);
         }
 
         [TestMethod]
@@ -164,9 +164,9 @@ namespace Testing3
             //create some test data to assign to the property
             string testPass = "asdfgh12";
             //assign the data to the property
-            customer.pass = testPass;
+            customer.passwrd = testPass;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.pass, testPass);
+            Assert.AreEqual(customer.passwrd, testPass);
         }
 
         [TestMethod]
@@ -190,9 +190,9 @@ namespace Testing3
             //create some test data to assign to the property
             bool testExist = true;
             //assign the data to the property
-            customer.exists = testExist;
+            customer.exist = testExist;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.exists, testExist);
+            Assert.AreEqual(customer.exist, testExist);
         }
 
         [TestMethod]
@@ -217,6 +217,7 @@ namespace Testing3
             Assert.AreNotEqual(error, "");
         }
 
+        [TestMethod]
         public void NameLenMin()
         {
             //create an instance of the class we want to create

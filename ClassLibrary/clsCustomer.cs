@@ -31,7 +31,7 @@ namespace ClassLibrary
         }
 
         private string testName;
-        public string name {
+        public string Name {
             get 
             {
                 return testName;
@@ -43,7 +43,7 @@ namespace ClassLibrary
                 }
 
         private string testPass;
-        public string pass { 
+        public string passwrd { 
             get
             {
                 return testPass;
@@ -66,15 +66,15 @@ namespace ClassLibrary
             }
                 }
 
-        public bool exist;
-        public bool exists { 
+        public bool tstExist;
+        public bool exist { 
             get
             {
-                return exist;
+                return tstExist;
             }
             set
             {
-                exist = value;
+                tstExist = value;
             } 
         }
 
@@ -95,7 +95,7 @@ namespace ClassLibrary
                 testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
                 testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
                 testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateCreated"]);
-                exist = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
+                tstExist = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
                 //return that everything works fine
                 return true;
             }
@@ -145,8 +145,8 @@ namespace ClassLibrary
         public string GetUserData()
         {
             string data = this.dateAdded.ToString() + "\n" 
-                + this.name + "\n" + this.pass + "\n" 
-                + this.email + "\n" + this.exists + "\n";
+                + this.Name + "\n" + this.passwrd + "\n" 
+                + this.email + "\n" + this.exist + "\n";
             return data;
         }
     }
