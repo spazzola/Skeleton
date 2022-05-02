@@ -551,7 +551,7 @@ namespace Testing3
             //string variable to store any error message
             String error = "";
             //this should pass
-            string tstMail = "aasdfghjkl1234567890";
+            string tstMail = "6pax@mail.bg";
             //invoke the method
             error = customer.Validate(dateCreated, tstMail, pass, name);
             //test to see that the result is correct
