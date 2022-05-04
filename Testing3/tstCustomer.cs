@@ -83,9 +83,9 @@ namespace Testing3
             //create some test data to assign to the property
             DateTime testData = DateTime.Now.Date;
             //assign the data to the property
-            customer.dateAdded = testData;
+            customer.dateCreated = testData;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.dateAdded, testData);
+            Assert.AreEqual(customer.dateCreated, testData);
         }
 
         [TestMethod]
@@ -124,9 +124,9 @@ namespace Testing3
             //create some test data to assign to the property
             DateTime testData = DateTime.Now.Date;
             //assign the data to the property
-            customer.dateAdded = testData;
+            customer.dateCreated = testData;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.dateAdded, testData);
+            Assert.AreEqual(customer.dateCreated, testData);
         }
 
 

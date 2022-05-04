@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsCustomer
     {
         private DateTime testDate;
-        public DateTime dateAdded
+        public DateTime dateCreated
         {
             get
             {
@@ -107,7 +107,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Validate(string dateCreated,
+        public string Validate(string dateAdded,
             string email, string pass, string name)
         {
             string error = "";
@@ -126,18 +126,34 @@ namespace ClassLibrary
                 error = "mail too long";
             }
 
-            testDate = Convert.ToDateTime(dateAdded);
+            if(email.Length == 0)
+            {
+                error = "mail field empty";
+            }
+
+            try
+            {
+                testDate = Convert.ToDateTime(dateAdded);
+            }
+            catch (System.FormatException e)
+            {
+                error = "invalid date format entered!";
+            }
             if(testDate < DateTime.Now.Date)
             {
                 error = "Date cannot be in the past.";
             }
 
+            if(testDate > DateTime.Now.Date)
+            {
+                error = "Date cannot be in the future.";
+            }
             return error;
         }
 
         public string GetUserData()
         {
-            string data = this.dateAdded.ToString() + "\n" 
+            string data = this.dateCreated.ToString() + "\n" 
                 + this.name + "\n" + this.passwrd + "\n" 
                 + this.email + "\n" + this.exist + "\n";
             return data;
