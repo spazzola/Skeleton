@@ -56,7 +56,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Int32 orderID = Convert.ToInt32(txtOrderID.Text);
         string orderNo = txtOrderNo.Text;
         string CustomerID = txtCustomerID.Text;
-        string DatePurchased = "25/03/2022 00:00";
+        string DatePurchased = txtDatePurchased.Text;
         string TotalPrice = txtTotalPrice.Text;
         string error = "";
 
@@ -76,12 +76,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             AnOrder.TotalPrice = Convert.ToDouble(TotalPrice);
 
-            
-
-
-
-
-
+  
             clsOrderCollection orderList = new clsOrderCollection();
 
             if (OrderID == -1)
@@ -133,4 +128,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
          {
 
            }
+
+    protected void txtOrderID_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderList.aspx");
+    }
 }

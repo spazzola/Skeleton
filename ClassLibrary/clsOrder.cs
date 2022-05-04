@@ -117,6 +117,8 @@ namespace ClassLibrary
             String Error = "";
             DateTime DateTemp;
 
+           
+
             if (orderNo.Length < 5)
             {
                 Error += "OrderNo too small";

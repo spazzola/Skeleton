@@ -227,11 +227,11 @@ namespace Testing2
 
             if (FilteredOrders.Count == 2)
             {
-                if (FilteredOrders.orderList[0].orderID != 40)
+                if (FilteredOrders.orderList[0].orderID != 5)
                 {
                     OK = false;
                 }
-                if (FilteredOrders.orderList[1].orderID != 41)
+                if (FilteredOrders.orderList[1].orderID != 6)
                 {
                     OK = false;
                 }
