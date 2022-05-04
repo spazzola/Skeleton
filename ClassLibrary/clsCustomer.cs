@@ -138,6 +138,7 @@ namespace ClassLibrary
             catch (System.FormatException e)
             {
                 error = "invalid date format entered!";
+               
             }
             if(testDate < DateTime.Now.Date)
             {
