@@ -8,7 +8,7 @@ namespace Testing3
     public class tstCustomer
     {
 
-        string dateCreated = DateTime.Now.Date.ToString();
+        string dateCreated = DateTime.Now.Date+"";
         string email = "n0rix@mail.com";
         string pass = "asdfgh12";
         string name = "Chuck Norix";
@@ -350,7 +350,7 @@ namespace Testing3
             //set the date totodays date
             tstDate = DateTime.Now.Date;
             //convert the date variable to a string variable
-            string strDate = tstDate.ToString();
+            string strDate = tstDate+"";
             //invoke the method
             error = customer.Validate(strDate, email, pass, name);
             //test to see that the result is correct

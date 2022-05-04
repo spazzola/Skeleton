@@ -13,18 +13,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // Make an instance of clsCustomer
         clsCustomer customer = new clsCustomer();
         //sets DateAdded to DateTime
-        customer.dateAdded = new DateTime();
+        customer.dateAdded = DateTime.Now.Date;
         // sets id
-        //customer.id = int.Parse(idTxtBox.Text);
+        customer.id = int.Parse(idTxtBox.Text);
         // sets customer.name to a provided input
-        //customer.name = nameTxtBox.Text;
         customer.name = nameTxtBox.Text;
         // sets pass to provided input
-        //customer.pass = passTxtBox.Text;
         customer.passwrd = passTxtBox.Text;
         // sets email to provided input
-        //customer.email = mailTxtBox.Text;
-        customer.email = "mail1@mail.com";
+        customer.email = mailTxtBox.Text;
         // sets customer.exists to wether it exists or not
         customer.exist = (bool)checkExist.Checked;
         // store customer in session object

@@ -121,22 +121,15 @@ namespace ClassLibrary
                 error = "Name length should be less than 20(including spaces)\n";
             }
 
-            try
+            if(email.Length > 20)
             {
-                testDate = Convert.ToDateTime(dateAdded);
-                if (testDate < DateTime.Now.Date)
-                {
-                    error = "Date can't be in the past\n";
-                }
-
-                if (testDate > DateTime.Now.Date)
-                {
-                    error = "Date can't be in the future\n";
-                }
+                error = "mail too long";
             }
-            catch
+
+            testDate = Convert.ToDateTime(dateAdded);
+            if(testDate < DateTime.Now.Date)
             {
-                error = "The date provided was not a valid date.\n";
+                error = "Date cannot be in the past.";
             }
 
             return error;
