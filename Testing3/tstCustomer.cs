@@ -36,8 +36,8 @@ namespace Testing3
             clsCustomer acc = new clsCustomer();
             //Test it
             String n = "Chuck Norix";
-            acc.Name = n;
-            Assert.AreEqual(n, acc.Name);
+            acc.name = n;
+            Assert.AreEqual(n, acc.name);
         }
 
         [TestMethod]
@@ -151,9 +151,9 @@ namespace Testing3
             //create some test data to assign to the property
             string testName = "Shpaximirr Maxan";
             //assign the data to the property
-            customer.Name = testName;
+            customer.name = testName;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.Name, testName);
+            Assert.AreEqual(customer.name, testName);
         }
 
         [TestMethod]

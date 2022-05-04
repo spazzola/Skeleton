@@ -31,7 +31,7 @@ namespace ClassLibrary
         }
 
         private string testName;
-        public string Name {
+        public string name {
             get 
             {
                 return testName;
@@ -145,7 +145,7 @@ namespace ClassLibrary
         public string GetUserData()
         {
             string data = this.dateAdded.ToString() + "\n" 
-                + this.Name + "\n" + this.passwrd + "\n" 
+                + this.name + "\n" + this.passwrd + "\n" 
                 + this.email + "\n" + this.exist + "\n";
             return data;
         }

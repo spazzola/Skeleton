@@ -18,8 +18,8 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(customer.id + "\n");
         Response.Write(customer.name + "\n");
         Response.Write(customer.email + "\n");
-        Response.Write(customer.pass+ "\n");
-        Response.Write(customer.exists+ "\n");
+        Response.Write(customer.passwrd+ "\n");
+        Response.Write(customer.exist+ "\n");
 
     }
 }

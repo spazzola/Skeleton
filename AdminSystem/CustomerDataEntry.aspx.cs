@@ -18,15 +18,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //customer.id = int.Parse(idTxtBox.Text);
         // sets customer.name to a provided input
         //customer.name = nameTxtBox.Text;
-        customer.name = "Maximus Meto";
+        customer.name = nameTxtBox.Text;
         // sets pass to provided input
         //customer.pass = passTxtBox.Text;
-        customer.pass = "Some password";
+        customer.passwrd = passTxtBox.Text;
         // sets email to provided input
         //customer.email = mailTxtBox.Text;
         customer.email = "mail1@mail.com";
         // sets customer.exists to wether it exists or not
-        customer.exists = (bool)checkExist.Checked;
+        customer.exist = (bool)checkExist.Checked;
         // store customer in session object
         Session["customer"] = customer;
         // navigate to the viewer page
@@ -73,9 +73,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnFind_Click(object sender, EventArgs e)
     {
         clsCustomer customer = new clsCustomer();
-        Int32 id;
+        Int32 id = 0;
         Boolean found = false;
-        id = Convert.ToInt32(idTxtBox.Text);
+        if (!idTxtBox.Text.Equals(""))
+        {
+            id = Convert.ToInt32(idTxtBox.Text);
+        }
         found = customer.Find(id);
 
         if (found == true)
@@ -84,7 +87,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             dateTxtBox.Text = customer.dateAdded.ToString();
             nameTxtBox.Text = customer.name;
             mailTxtBox.Text = customer.email;
-            passTxtBox.Text = customer.pass;
+            passTxtBox.Text = customer.passwrd;
         }
     }
 }
