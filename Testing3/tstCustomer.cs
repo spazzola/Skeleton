@@ -9,9 +9,9 @@ namespace Testing3
     {
 
         string dateCreated = DateTime.Now.Date+"";
+        string name = "Chuck Norix";
         string email = "n0rix@mail.com";
         string pass = "asdfgh12";
-        string name = "Chuck Norix";
 
         [TestMethod]
         public void InstanceOK()
