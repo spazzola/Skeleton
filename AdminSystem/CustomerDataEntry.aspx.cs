@@ -32,7 +32,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             // sets email to provided input
             customer.email = mail;
             // sets customer.exists to wether it exists or not
-            customer.dateAdded = Convert.ToDateTime(addedDate);
+            customer.dateCreated = Convert.ToDateTime(addedDate);
             //sets DateAdded to DateTime
             customer.exist = (bool)checkExist.Checked;
             // store customer in session object
@@ -65,7 +65,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (found == true)
         {
             idTxtBox.Text = customer.id.ToString();
-            dateTxtBox.Text = customer.dateAdded.ToString();
+            dateTxtBox.Text = customer.dateCreated.ToString();
             nameTxtBox.Text = customer.name;
             mailTxtBox.Text = customer.email;
             passTxtBox.Text = customer.passwrd;
