@@ -43,7 +43,7 @@ namespace ClassLibrary
                 }
 
         private string testPass;
-        public string pass { 
+        public string passwrd { 
             get
             {
                 return testPass;
@@ -66,15 +66,15 @@ namespace ClassLibrary
             }
                 }
 
-        public bool maybe;
-        public bool exists { 
+        public bool tstExist;
+        public bool exist { 
             get
             {
-                return maybe;
+                return tstExist;
             }
             set
             {
-                maybe = value;
+                tstExist = value;
             } 
         }
 
@@ -95,7 +95,7 @@ namespace ClassLibrary
                 testPass = Convert.ToString(DB.DataTable.Rows[0]["pass"]);
                 testMail = Convert.ToString(DB.DataTable.Rows[0]["email"]);
                 testDate = Convert.ToDateTime(DB.DataTable.Rows[0]["dateCreated"]);
-                maybe = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
+                tstExist = Convert.ToBoolean(DB.DataTable.Rows[0]["exist"]);
                 //return that everything works fine
                 return true;
             }
@@ -113,30 +113,23 @@ namespace ClassLibrary
             string error = "";
             if(name.Length == 0)
             {
-                error += "Name may not be blank\n";
+                error = "Name may not be blank\n";
             }
 
             if(name.Length >= 20)
             {
-                error += "Name length should be less than 20(including spaces)\n";
+                error = "Name length should be less than 20(including spaces)\n";
             }
 
-            try
+            if(email.Length > 20)
             {
-                testDate = Convert.ToDateTime(dateAdded);
-                if (testDate < DateTime.Now.Date)
-                {
-                    error += "Date can't be in the past\n";
-                }
-
-                if (testDate > DateTime.Now.Date)
-                {
-                    error = "Date can't be in the future\n";
-                }
+                error = "mail too long";
             }
-            catch
+
+            testDate = Convert.ToDateTime(dateAdded);
+            if(testDate < DateTime.Now.Date)
             {
-                error += "The date provided was not a valid date.\n";
+                error = "Date cannot be in the past.";
             }
 
             return error;
@@ -145,8 +138,8 @@ namespace ClassLibrary
         public string GetUserData()
         {
             string data = this.dateAdded.ToString() + "\n" 
-                + this.name + "\n" + this.pass + "\n" 
-                + this.email + "\n" + this.exists + "\n";
+                + this.name + "\n" + this.passwrd + "\n" 
+                + this.email + "\n" + this.exist + "\n";
             return data;
         }
     }

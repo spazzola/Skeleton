@@ -8,7 +8,7 @@ namespace Testing3
     public class tstCustomer
     {
 
-        string dateCreated = DateTime.Now.Date.ToString();
+        string dateCreated = DateTime.Now.Date+"";
         string email = "n0rix@mail.com";
         string pass = "asdfgh12";
         string name = "Chuck Norix";
@@ -47,8 +47,8 @@ namespace Testing3
             clsCustomer acc = new clsCustomer();
             //Test it
             String tstPass = "asdfghjk12";
-            acc.pass = "asdfghjk12";
-            Assert.AreEqual(tstPass, acc.pass);
+            acc.passwrd = "asdfghjk12";
+            Assert.AreEqual(tstPass, acc.passwrd);
         }
 
         [TestMethod]
@@ -70,9 +70,9 @@ namespace Testing3
             // Sample data
             bool tstExist = true;
             // Just pass for now
-            acc.exists = tstExist;
+            acc.exist = tstExist;
             //Test it
-            Assert.IsTrue(acc.exists);
+            Assert.IsTrue(acc.exist);
         }
 
         [TestMethod]
@@ -164,9 +164,9 @@ namespace Testing3
             //create some test data to assign to the property
             string testPass = "asdfgh12";
             //assign the data to the property
-            customer.pass = testPass;
+            customer.passwrd = testPass;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.pass, testPass);
+            Assert.AreEqual(customer.passwrd, testPass);
         }
 
         [TestMethod]
@@ -190,9 +190,9 @@ namespace Testing3
             //create some test data to assign to the property
             bool testExist = true;
             //assign the data to the property
-            customer.exists = testExist;
+            customer.exist = testExist;
             //test to see that the two values are the same
-            Assert.AreEqual(customer.exists, testExist);
+            Assert.AreEqual(customer.exist, testExist);
         }
 
         [TestMethod]
@@ -217,6 +217,7 @@ namespace Testing3
             Assert.AreNotEqual(error, "");
         }
 
+        [TestMethod]
         public void NameLenMin()
         {
             //create an instance of the class we want to create
@@ -349,7 +350,7 @@ namespace Testing3
             //set the date totodays date
             tstDate = DateTime.Now.Date;
             //convert the date variable to a string variable
-            string strDate = tstDate.ToString();
+            string strDate = tstDate+"";
             //invoke the method
             error = customer.Validate(strDate, email, pass, name);
             //test to see that the result is correct
@@ -551,7 +552,7 @@ namespace Testing3
             //string variable to store any error message
             String error = "";
             //this should pass
-            string tstMail = "aasdfghjkl1234567890";
+            string tstMail = "6pax@mail.bg";
             //invoke the method
             error = customer.Validate(dateCreated, tstMail, pass, name);
             //test to see that the result is correct

@@ -47,7 +47,7 @@ public class clsDataConnection
         string[] filePaths;
         //var to store index for path array
         Int32 PathArrayIndex = 0;
-        string[] dirConts;
+        string[] dirsContent;
         //flag for found
         Boolean Found = false;
         //var for counter
@@ -68,16 +68,16 @@ public class clsDataConnection
                 if (filePaths[PathArrayIndex].Contains("app_data") == true)
                 {
                     //get the list of files in the folder
-                    dirConts = System.IO.Directory.GetFiles(filePaths[PathArrayIndex], "*.mdf", System.IO.SearchOption.AllDirectories);
+                    dirsContent = System.IO.Directory.GetFiles(filePaths[PathArrayIndex], "*.mdf", System.IO.SearchOption.AllDirectories);
                     Counter = 0;
                     //while there are files to process
-                    while (Counter < dirConts.Length)
+                    while (Counter < dirsContent.Length)
                     {
                         //if the file is not a system database file
-                        if (dirConts[Counter].Contains("ASPNETDB.MDF") == false)
+                        if (dirsContent[Counter].Contains("ASPNETDB.MDF") == false)
                         {
                             //add the file to the list of db names
-                            DBNames.Add(dirConts[Counter]);
+                            DBNames.Add(dirsContent[Counter]);
                         }
                         //inc the counter
                         Counter++;
