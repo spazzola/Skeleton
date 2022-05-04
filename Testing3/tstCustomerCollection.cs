@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Testing3
 {
-    class tstCustomerCollection
+    public class tstCustomerCollection
     {
         [TestMethod]
         public void InstanceOK()
