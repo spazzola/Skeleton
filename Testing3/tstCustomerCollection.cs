@@ -13,15 +13,15 @@ namespace Testing3
         [TestMethod]
         public void InstanceOK()
         {
-            clsCustomerCollection customerCollection = new clsCustomerCollection();
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
 
-            Assert.IsNotNull(customerCollection);
+            Assert.IsNotNull(allCustomers);
         }
 
         [TestMethod]
         public void CustomerListOK()
         {
-            clsCustomerCollection customerCollection = new clsCustomerCollection();
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
             List<clsCustomer> tstList = new List<clsCustomer>();
 
             clsCustomer tstItem = new clsCustomer();
@@ -35,10 +35,41 @@ namespace Testing3
 
             tstList.Add(tstItem);
 
-            customerCollection.customersList = tstList;
+            allCustomers.customersList = tstList;
 
-            Assert.AreEqual(customerCollection.customersList, tstList);
+            Assert.AreEqual(allCustomers.customersList, tstList);
 
+        }
+
+        [TestMethod]
+        public void CountPropertyOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            int someCount = 0;
+
+            allCustomers.count = someCount;
+
+            Assert.AreEqual(allCustomers.count, someCount);
+        }
+
+        [TestMethod]
+        public void ThisCustomerPropertyOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            clsCustomer tstCustomer = new clsCustomer();
+
+            tstCustomer.id = 1;
+            tstCustomer.dateCreated = DateTime.Now.Date;
+            tstCustomer.name = "Chuck Norix";
+            tstCustomer.email = "n0rix@mail.com";
+            tstCustomer.passwrd = "asdfgh12";
+            tstCustomer.exist = true;
+
+            allCustomers.customer = tstCustomer;
+
+            Assert.AreEqual(allCustomers.customer, tstCustomer);
         }
     }
 }
