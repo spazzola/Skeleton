@@ -16,10 +16,9 @@ public partial class _1_List : System.Web.UI.Page
 
         if (IsPostBack == false)
         {
-            if(orderID != -1)
-            {
+            
                 DisplayOrders();
-            }
+          
             
         }
     }
