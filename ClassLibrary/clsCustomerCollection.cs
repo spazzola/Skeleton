@@ -86,5 +86,19 @@ namespace ClassLibrary
 
             return DB.Execute("sproc_tblCustomer_Insert");
         }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("Id", tstCustomer.id);
+            DB.AddParameter("dateCreated", tstCustomer.dateCreated);
+            DB.AddParameter("name", tstCustomer.name);
+            DB.AddParameter("email", tstCustomer.email);
+            DB.AddParameter("pass", tstCustomer.passwrd);
+            DB.AddParameter("exist", tstCustomer.exist);
+
+            DB.Execute("sproc_tblCustomer_Update");
+        }
     }
 }

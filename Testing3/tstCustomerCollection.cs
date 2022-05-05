@@ -131,5 +131,41 @@ namespace Testing3
 
             Assert.AreEqual(allCustomers.thisCustomer, tstItem);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            clsCustomer tstItem = new clsCustomer();
+
+            int32 pk = 0;
+
+            tstItem.id = 1;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "6pax Shpaxanders";
+            tstItem.email = "6pax@mail.com";
+            tstItem.passwrd = "qwerty_2000s";
+            tstItem.exist = true;
+
+            allCustomers.thisCustomer = tstItem;
+
+            tstItem.id = pk;
+
+            tstItem.id = 2;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "6pax 6paxanders";
+            tstItem.email = "shpax@mail.com";
+            tstItem.passwrd = "qwerty_2004s";
+            tstItem.exist = false;
+
+            allCustomers.thisCustomer = tstItem;
+
+            allCustomers.Update();
+
+            allCustomers.thisCustomer.Find(pk);
+
+            Assert.AreEqual(allCustomers.thisCustomer, tstItem);
+        }
     }
 }
