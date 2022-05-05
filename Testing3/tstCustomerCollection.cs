@@ -48,7 +48,7 @@ namespace Testing3
         {
             clsCustomerCollection allCustomers = new clsCustomerCollection();
 
-            int someCount = 0;
+            int someCount = 2;
 
             allCustomers.count = someCount;
 
@@ -60,19 +60,49 @@ namespace Testing3
         {
             clsCustomerCollection allCustomers = new clsCustomerCollection();
 
-            clsCustomer tstCustomer = new clsCustomer();
+            clsCustomer tstItem = new clsCustomer();
 
-            tstCustomer.id = 1;
-            tstCustomer.dateCreated = DateTime.Now.Date;
-            tstCustomer.name = "Chuck Norix";
+            tstItem.id = 1;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "Chuck Norix";
 
-            tstCustomer.email = "n0rix@mail.com";
-            tstCustomer.passwrd = "asdfgh12";
-            tstCustomer.exist = true;
+            tstItem.email = "n0rix@mail.com";
+            tstItem.passwrd = "asdfgh12";
+            tstItem.exist = true;
 
-            allCustomers.customer = tstCustomer;
+            allCustomers.customer = tstItem;
 
-            Assert.AreEqual(allCustomers.customer, tstCustomer);
+            Assert.AreEqual(allCustomers.customer, tstItem);
+        }
+
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            List<clsCustomer> tstList = new List<clsCustomer>();
+
+            clsCustomer tstItem = new clsCustomer();
+
+            tstItem.id = 1;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "Chuck Norix";
+            tstItem.email = "n0rix@mail.com";
+            tstItem.passwrd = "asdfgh12";
+            tstItem.exist = true;
+
+            tstList.Add(tstItem);
+            allCustomers.customersList = tstList;
+
+            Assert.AreEqual(allCustomers.count, tstList.Count);
+        }
+
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            Assert.AreEqual(allCustomers.count, 2);
         }
     }
 }
