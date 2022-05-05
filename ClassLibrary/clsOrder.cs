@@ -121,37 +121,37 @@ namespace ClassLibrary
 
             if (orderNo.Length < 5)
             {
-                Error += "OrderNo too small";
+                Error += "OrderNo too small\n";
 
             }
 
 
             if (orderNo.Length > 10)
             {
-                Error += "OrderNo too large";
+                Error += "OrderNo too large\n";
             }
 
             try
             {
                 if (CustomerID.Length < 1)
                 {
-                    Error += "Customer ID is too small";
+                    Error += "Customer ID is too small\n";
                 }
 
 
                 if (CustomerID == "0")
                 {
-                    Error += "Invalid Entry for Customer ID";
+                    Error += "Invalid Entry for Customer ID\n";
                 }
 
                 if (CustomerID.Length >= 1000000000)
                 {
-                    Error += "Customer ID too large";
+                    Error += "Customer ID too large\n";
                 }
             }
             catch
             {
-                Error += "Invalid entry for customer";
+                Error += "Invalid entry for customer\n";
             }
 
             try
@@ -161,17 +161,19 @@ namespace ClassLibrary
 
                 if (DateTemp > DateTime.Now.Date)
                 {
-                    Error += "The date cannot be in the future";
+                    Error += "The date cannot be in the future\n";
                 }
 
             }
             catch
             {
-                Error += "The date was not a valid date";
+                Error += "The date was not a valid date\n";
             }
 
             return Error;
         }
+
+        //d
 
         
 
