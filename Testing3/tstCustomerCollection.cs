@@ -1,13 +1,15 @@
-﻿using ClassLibrary;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using ClassLibrary;
 
 namespace Testing3
 {
+    /// <summary>
+    /// Summary description for tstCustomerCollection
+    /// </summary>
+    [TestClass]
     public class tstCustomerCollection
     {
         [TestMethod]
@@ -46,7 +48,7 @@ namespace Testing3
         {
             clsCustomerCollection allCustomers = new clsCustomerCollection();
 
-            int someCount = 0;
+            int someCount = 2;
 
             allCustomers.count = someCount;
 
@@ -58,18 +60,49 @@ namespace Testing3
         {
             clsCustomerCollection allCustomers = new clsCustomerCollection();
 
-            clsCustomer tstCustomer = new clsCustomer();
+            clsCustomer tstItem = new clsCustomer();
 
-            tstCustomer.id = 1;
-            tstCustomer.dateCreated = DateTime.Now.Date;
-            tstCustomer.name = "Chuck Norix";
-            tstCustomer.email = "n0rix@mail.com";
-            tstCustomer.passwrd = "asdfgh12";
-            tstCustomer.exist = true;
+            tstItem.id = 1;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "Chuck Norix";
 
-            allCustomers.customer = tstCustomer;
+            tstItem.email = "n0rix@mail.com";
+            tstItem.passwrd = "asdfgh12";
+            tstItem.exist = true;
 
-            Assert.AreEqual(allCustomers.customer, tstCustomer);
+            allCustomers.customer = tstItem;
+
+            Assert.AreEqual(allCustomers.customer, tstItem);
+        }
+
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            List<clsCustomer> tstList = new List<clsCustomer>();
+
+            clsCustomer tstItem = new clsCustomer();
+
+            tstItem.id = 1;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "Chuck Norix";
+            tstItem.email = "n0rix@mail.com";
+            tstItem.passwrd = "asdfgh12";
+            tstItem.exist = true;
+
+            tstList.Add(tstItem);
+            allCustomers.customersList = tstList;
+
+            Assert.AreEqual(allCustomers.count, tstList.Count);
+        }
+
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            Assert.AreEqual(allCustomers.count, 2);
         }
     }
 }
