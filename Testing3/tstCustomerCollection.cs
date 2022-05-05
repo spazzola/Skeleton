@@ -1,13 +1,15 @@
-﻿using ClassLibrary;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using ClassLibrary;
 
 namespace Testing3
 {
+    /// <summary>
+    /// Summary description for tstCustomerCollection
+    /// </summary>
+    [TestClass]
     public class tstCustomerCollection
     {
         [TestMethod]
@@ -63,6 +65,7 @@ namespace Testing3
             tstCustomer.id = 1;
             tstCustomer.dateCreated = DateTime.Now.Date;
             tstCustomer.name = "Chuck Norix";
+
             tstCustomer.email = "n0rix@mail.com";
             tstCustomer.passwrd = "asdfgh12";
             tstCustomer.exist = true;
