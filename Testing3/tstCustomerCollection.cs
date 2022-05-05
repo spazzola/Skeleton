@@ -70,9 +70,9 @@ namespace Testing3
             tstItem.passwrd = "asdfgh12";
             tstItem.exist = true;
 
-            allCustomers.customer = tstItem;
+            allCustomers.thisCustomer = tstItem;
 
-            Assert.AreEqual(allCustomers.customer, tstItem);
+            Assert.AreEqual(allCustomers.thisCustomer, tstItem);
         }
 
         [TestMethod]
@@ -103,6 +103,33 @@ namespace Testing3
             clsCustomerCollection allCustomers = new clsCustomerCollection();
 
             Assert.AreEqual(allCustomers.count, 2);
+        }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsCustomerCollection allCustomers = new clsCustomerCollection();
+
+            clsCustomer tstItem = new clsCustomer();
+
+            Int32 pk = 0;
+
+            tstItem.id = 2;
+            tstItem.dateCreated = DateTime.Now.Date;
+            tstItem.name = "6pax Shpaxanders";
+            tstItem.email = "6pax@mail.com";
+            tstItem.passwrd = "qwerty_2000s";
+            tstItem.exist = true;
+
+            allCustomers.thisCustomer = tstItem;
+
+            pk = allCustomers.Add();
+
+            tstItem.id = pk;
+
+            allCustomers.thisCustomer.Find(pk);
+
+            Assert.AreEqual(allCustomers.thisCustomer, tstItem);
         }
     }
 }

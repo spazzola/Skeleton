@@ -6,8 +6,20 @@ namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
-        private List<clsCustomer> tstCustomerList = new List<clsCustomer>();
-        public clsCustomer customer { get; set; }
+        List<clsCustomer> tstCustomerList = new List<clsCustomer>();
+
+        clsCustomer tstCustomer = new clsCustomer();
+
+        public clsCustomer thisCustomer { 
+            get 
+            {
+                return tstCustomer;
+            } 
+            set 
+            {
+                tstCustomer = value;
+            }
+        }
 
         public List<clsCustomer> customersList { 
             get 
@@ -61,31 +73,18 @@ namespace ClassLibrary
             }
         }
 
-        //clsCustomerCollection constructor
-       /* public clsCustomerCollection()
+        public int Add()
         {
-            clsCustomer customer = new clsCustomer();
+            clsDataConnection DB = new clsDataConnection();
 
-            customer.id = 1;
-            customer.dateCreated = DateTime.Now.Date;
-            customer.name = "Chuck Norix";
-            customer.email = "n0rix@mail.com";
-            customer.passwrd = "asdfgh12";
-            customer.exist = true;
+            DB.AddParameter("Id", tstCustomer.id);
+            DB.AddParameter("name", tstCustomer.name);
+            DB.AddParameter("pass", tstCustomer.passwrd);
+            DB.AddParameter("email", tstCustomer.email);
+            DB.AddParameter("exist", tstCustomer.exist);
+            DB.AddParameter("dateCreated", tstCustomer.dateCreated);
 
-            tstCustomerList.Add(customer);
-
-            //Re-instantiate customer
-            customer = new clsCustomer();
-
-            customer.id = 2;
-            customer.dateCreated = DateTime.Now.Date;
-            customer.name = "6pax Shpaxanders";
-            customer.email = "6pax@mail.com";
-            customer.passwrd = "qwerty_2000s";
-            customer.exist = true;
-
-            tstCustomerList.Add(customer);
-        }*/
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
     }
 }
